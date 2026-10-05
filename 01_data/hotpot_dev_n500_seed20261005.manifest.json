@@ -1,0 +1,11 @@
+{
+  "source_url": "https://huggingface.co/api/datasets/hotpotqa/hotpot_qa/parquet/distractor/validation/0.parquet",
+  "source_file": "hotpot_qa_distractor_validation.parquet",
+  "source_sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "source_n_items": 7405,
+  "sample_file": "hotpot_dev_n500_seed20261005.jsonl",
+  "sample_sha256": "5e3dd54cc44b1f1ec6c7ba10d0c3cacddf10d1f9eefeebcfaed0a14458b87f83",
+  "n": 500,
+  "seed": 20261005,
+  "sampling": "sorted by id, random.Random(seed).sample"
+}

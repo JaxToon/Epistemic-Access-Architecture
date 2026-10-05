@@ -1,0 +1,16 @@
+backend: hf
+batch_size: 8
+dtype: float16
+equivalence_margin: 0.05
+items_path: 01_data/hotpot_dev_n500_seed20261005.jsonl
+limit: 5
+load_in_4bit: false
+max_false_refusal_increase: 0.1
+max_new_tokens_answer: 24
+max_new_tokens_reader: 64
+model_id: 03_models/Qwen2.5-3B-Instruct
+n_extra_distractors: 4
+output_root: 05_outputs
+restore_from: drop_ans
+run_name: smoke_qwen3b
+seed: 20261005

@@ -1,0 +1,23 @@
+# Pilot #1 — channel level x epistemic authority (see 00_docs/02_hypothesis_and_pilot_design_v0.1.md
+# and the v0.2 changes in 00_docs/research_log.md). Lock before the full run; log any later change.
+run_name: pilot_v0.2_qwen2.5-3b
+backend: hf                      # hf | mock
+model_id: 03_models/Qwen2.5-3B-Instruct   # local copy of Qwen/Qwen2.5-3B-Instruct (HF symlinks fail on Windows)
+dtype: float16
+load_in_4bit: false
+
+items_path: 01_data/hotpot_dev_n500_seed20261005.jsonl
+seed: 20261005
+output_root: 05_outputs
+
+# channel levels are fixed in eaa/conditions.py: full, drop_ans, drop_other, drop_all
+restore_from: drop_ans           # restored: turn 1 at this level, turn 2 full evidence
+n_extra_distractors: 4           # non-gold units present at every level
+
+batch_size: 8
+max_new_tokens_answer: 24
+max_new_tokens_reader: 64
+
+# pre-registered decision thresholds
+equivalence_margin: 0.05         # H2 TOST: |restored - restored_ctrl| < margin (90% CI)
+max_false_refusal_increase: 0.10 # H4: upper 95% CI of false-refusal increase must stay below this

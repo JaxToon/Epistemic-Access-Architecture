@@ -1,0 +1,811 @@
+item_id,level,gold_kept_frac,answer_available,len_ratio_vs_full,reader_verdict,reader_missing_leak,reader_p_suff,system,prompt_tokens,output,response_class,abstain,answered,em,f1,correct,hallucination,verbose,turn1_level,turn1_status,qclass,answer_para_defined,param_known,unsupported_correct,primary
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,211,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,211,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,215,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,215,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,off,213,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,213,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,advisory,217,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,enforced,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_ans,0.5,0.0,1.0128205128205128,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,217,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,off,213,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,enforced_oracle,213,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,advisory,217,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,enforced,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,enforced_score,217,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_other,0.5,1.0,1.0128205128205128,INSUFFICIENT,0.0,0.5,advisory_missing,217,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,off,215,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,enforced_oracle,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,advisory,219,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,enforced,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,enforced_score,219,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,drop_all,0.0,0.0,1.0256410256410255,INSUFFICIENT,0.0,0.5,advisory_missing,219,Antiochus III the Great,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,162,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,162,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,166,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,off,163,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,enforced_oracle,163,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,advisory,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,enforced_score,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_ans,0.5,0.0,1.008695652173913,INSUFFICIENT,0.0,0.5,advisory_missing,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,162,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,162,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,166,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,166,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,off,163,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,163,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,advisory,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,drop_all,0.0,0.0,1.008695652173913,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,167,Metro Station (band,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,178,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,178,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,182,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,182,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,182,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,182,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,off,179,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,enforced_oracle,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,advisory,183,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,enforced,183,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,enforced_score,183,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_ans,0.5,0.0,1.0078740157480315,INSUFFICIENT,0.0,0.5,advisory_missing,183,Tinto Brass,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,off,177,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,177,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,advisory,181,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,enforced,181,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,181,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_other,0.5,0.0,0.9921259842519685,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,181,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,178,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,182,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,182,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,182,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8762205542996e4f3087b8,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,182,Baltasar Breki Samper,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,off,289,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced_oracle,289,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,advisory,293,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced,293,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced_score,293,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,advisory_missing,293,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,off,282,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,282,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,advisory,286,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced,286,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced_score,286,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_ans,0.6666666666666666,0.0,0.9688888888888889,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,286,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,off,291,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,291,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,advisory,295,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced,295,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,enforced_score,295,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_other,0.3333333333333333,1.0,1.008888888888889,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,295,Law of Jante,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,off,284,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,enforced_oracle,284,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,advisory,288,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,enforced,288,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,enforced_score,288,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,drop_all,0.0,0.0,0.9777777777777777,SUFFICIENT,0.0,0.5,advisory_missing,288,Jesper Langballe,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,271,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,271,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,275,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,off,270,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,270,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,advisory,274,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,enforced,274,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,274,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_ans,0.5,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,274,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,271,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,271,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,275,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,275,Carlos Boozer,substantive,0,1,0.0,0.6666666666666666,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,off,270,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,270,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,advisory,274,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,enforced,274,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,274,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,drop_all,0.0,0.0,0.9952153110047847,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,274,List of Olympic venues in figure skating,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,188,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,188,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,192,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,192,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,192,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,192,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,188,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,188,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,192,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,192,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,192,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,192,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,off,175,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,175,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,advisory,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_other,0.5,1.0,0.9078014184397163,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,off,175,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,enforced_oracle,175,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,advisory,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,enforced_score,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,drop_all,0.0,0.0,0.9078014184397163,INSUFFICIENT,0.0,0.5,advisory_missing,179,Starry Eyed Surprise,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,227,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,227,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,231,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,231,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,231,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,231,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,off,226,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,226,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,advisory,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced,230,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_ans,0.5,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,227,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,227,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,231,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,231,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,231,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_other,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,231,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,off,226,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,226,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,advisory,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced,230,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,drop_all,0.0,0.0,0.9943502824858758,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,230,Pension administration in the United States,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,155,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,155,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,159,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,159,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,159,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,159,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,155,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,155,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,159,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,159,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,159,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,159,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,off,156,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced_oracle,156,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,advisory,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced,160,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced_score,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_other,0.5,1.0,1.009090909090909,INSUFFICIENT,0.0,0.5,advisory_missing,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,off,156,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced_oracle,156,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,advisory,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced,160,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,enforced_score,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,drop_all,0.0,0.0,1.009090909090909,INSUFFICIENT,0.0,0.5,advisory_missing,160,Pinnacle Airlines Corp.,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,237,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,237,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,241,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,241,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,241,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,241,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,off,222,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,enforced_oracle,222,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,advisory,226,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,enforced,226,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,enforced_score,226,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_ans,0.5,0.0,0.9202127659574468,INSUFFICIENT,0.0,0.5,advisory_missing,226,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,off,238,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,enforced_oracle,238,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,advisory,242,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,enforced_score,242,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_other,0.5,1.0,1.0053191489361701,INSUFFICIENT,0.0,0.5,advisory_missing,242,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,off,223,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,223,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,advisory,227,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,enforced,227,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,227,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a72a4645542991f9a20c54c,drop_all,0.0,0.0,0.925531914893617,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,227,North Bend (community,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,193,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,193,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,197,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,197,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,193,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,193,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,197,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,197,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,193,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,193,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,197,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,197,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,197,"Middleton, Greater Manchester",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,193,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,193,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,197,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,197,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,197,Ounsdale High School,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,174,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,174,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,178,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,178,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,178,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,off,173,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced_oracle,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,advisory,177,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced,177,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced_score,177,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_ans,0.5,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,advisory_missing,177,Laurent Touil-Tartour,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,off,174,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,174,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,178,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,178,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,178,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,off,173,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced_oracle,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,advisory,177,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced,177,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,enforced_score,177,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.5,advisory_missing,177,Despoina,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,223,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,223,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,227,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,227,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,227,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,227,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,off,222,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,enforced_oracle,222,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,advisory,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,enforced,226,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,enforced_score,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_ans,0.5,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.5,advisory_missing,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,223,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,223,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,227,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,227,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,227,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,227,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,off,222,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,222,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,advisory,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,enforced,226,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,drop_all,0.0,0.0,0.9939759036144579,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,226,Petr Mikeš,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,off,286,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced_oracle,286,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,advisory,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,enforced_score,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.7310585786300049,advisory_missing,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,off,286,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,enforced_oracle,286,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,advisory,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,enforced,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,enforced_score,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_ans,0.3333333333333333,0.0,1.0,SUFFICIENT,0.0,0.5,advisory_missing,290,Lady Lever Art Gallery,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,off,286,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,enforced_oracle,286,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,advisory,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,enforced,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,enforced_score,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_other,0.6666666666666666,1.0,1.0,SUFFICIENT,0.0,0.5,advisory_missing,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,off,286,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,286,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_score,290,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a866e7e554299211dda2b29,drop_all,0.0,0.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,290,Arkell Museum,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,off,284,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,284,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_score,288,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,off,283,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,283,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,advisory,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced_score,287,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_ans,0.6666666666666666,1.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,off,284,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,284,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,enforced_score,288,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_other,0.3333333333333333,1.0,1.0,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,288,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,off,283,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced_oracle,283,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,advisory,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,enforced_score,287,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,False,0,0,0
+5aba8f1b55429955dce3ee85,drop_all,0.0,0.0,0.9953703703703703,SUFFICIENT,0.0,0.2689414213699951,advisory_missing,287,2010 FA Community Shield,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,211,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,211,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,off,205,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,205,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,advisory,209,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced,209,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,209,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_ans,0.5,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,209,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,off,211,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,211,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,215,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,off,205,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,205,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,advisory,209,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced,209,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,209,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8642045542991e771815e2,drop_all,0.0,0.0,0.9627329192546584,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,209,Reading law,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,216,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,216,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,220,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,216,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,216,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,220,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,220,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,off,215,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,215,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,advisory,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_other,0.5,1.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,off,215,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,215,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,advisory,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,drop_all,0.0,0.0,0.993421052631579,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,219,2010–11 VCU Rams men's basketball team,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,216,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,216,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,220,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,off,217,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,advisory,221,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,enforced,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_ans,0.5,0.0,1.0062893081761006,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,221,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,off,215,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,215,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,advisory,219,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,enforced,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,219,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_other,0.5,1.0,0.9937106918238994,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,219,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,off,216,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,216,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,220,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,220,Preference Pane,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,217,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,217,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,221,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,221,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,221,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,217,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,221,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,221,Nike Hoop Summit,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,off,219,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,219,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,advisory,223,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,enforced,223,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,223,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_other,0.5,1.0,1.0127388535031847,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,223,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,off,219,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,enforced_oracle,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,advisory,223,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,enforced,223,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,enforced_score,223,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,drop_all,0.0,0.0,1.0127388535031847,INSUFFICIENT,0.0,0.5,advisory_missing,223,2010–11 Dallas Mavericks season,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,off,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,234,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,off,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,234,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,234,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,238,South Park Is Gay!,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,175,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,175,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,179,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,179,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,175,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,175,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,179,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,179,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,off,174,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,174,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,advisory,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_other,0.5,1.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,off,174,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,174,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,advisory,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a9080275542995651fb5175,drop_all,0.0,0.0,0.9919354838709677,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,178,List of Colchester United F.C. seasons,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,263,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,259,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,263,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,263,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,259,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,259,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,263,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,263,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,263,Ilyas Afandiyev,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,218,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,218,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,222,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,222,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,222,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,222,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,off,219,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,enforced_oracle,219,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,advisory,223,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,enforced,223,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,enforced_score,223,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_ans,0.5,0.0,1.0057803468208093,INSUFFICIENT,0.0,0.5,advisory_missing,223,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,off,217,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,enforced_oracle,217,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,advisory,221,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,enforced,221,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,enforced_score,221,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_other,0.5,0.0,0.9942196531791907,INSUFFICIENT,0.0,0.5,advisory_missing,221,Hires Root Beer,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,off,218,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,218,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,222,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,222,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,222,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5add74b95542992ae4cec56f,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,222,A&amp;W Cream Soda,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,252,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,252,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,256,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,off,253,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,253,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,advisory,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced,257,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_ans,0.5,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,252,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,252,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,256,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,256,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,off,253,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,253,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,advisory,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced,257,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,drop_all,0.0,0.0,1.0052356020942408,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,257,Donald Trump (Last Week Tonight,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,193,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,193,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,off,192,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,enforced_oracle,192,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,advisory,196,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,enforced,196,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,enforced_score,196,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_ans,0.5,0.0,0.993006993006993,INSUFFICIENT,0.0,0.5,advisory_missing,196,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,off,193,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,193,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,197,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,197,Those Calloways,substantive,0,1,1.0,1.0,1,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,off,192,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,192,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,advisory,196,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,enforced,196,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,196,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,drop_all,0.0,0.0,0.993006993006993,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,196,Bill Thomas (costume designer,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,169,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,off,169,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,169,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,173,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,173,Southeast (Metro-North station,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,163,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,off,163,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,163,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,167,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,167,Samim Sultani,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,174,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,174,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,178,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,178,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,178,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,178,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,off,175,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,175,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,advisory,179,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_ans,0.5,0.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,179,Get Cape. Wear Cape. Fly,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,off,175,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,175,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,advisory,179,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,179,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_other,0.5,1.0,1.0084033613445378,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,179,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,off,176,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,enforced_oracle,176,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,advisory,180,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,enforced,180,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,enforced_score,180,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,drop_all,0.0,0.0,1.0168067226890756,INSUFFICIENT,0.0,0.5,advisory_missing,180,Get Cape. Wear Cape. Fly / Dave House,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,239,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,239,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,243,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,243,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,243,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,243,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,off,238,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,advisory,242,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_ans,0.5,0.0,0.994535519125683,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,242,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,off,235,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,235,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,advisory,239,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,enforced,239,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,239,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_other,0.5,1.0,0.9781420765027322,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,239,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,off,234,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,enforced_oracle,234,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,advisory,238,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,enforced,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,enforced_score,238,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,drop_all,0.0,0.0,0.9726775956284153,INSUFFICIENT,0.0,0.5,advisory_missing,238,Drug Facts for Young People,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,210,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,off,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,206,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,210,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,210,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,206,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,206,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,210,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,210,"Irish general election, 2011",substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,off,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,off,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_oracle,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,enforced_score,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_ans,0.5,0.0,1.0,INSUFFICIENT,0.0,0.7310585786300049,advisory_missing,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,off,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_oracle,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,enforced_score,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_other,0.5,1.0,1.0,INSUFFICIENT,0.0,0.2689414213699951,advisory_missing,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,off,238,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_oracle,238,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced,242,INSUFFICIENT EVIDENCE,abstain,1,0,0.0,0.0,0,0,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,enforced_score,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,drop_all,0.0,0.0,1.0,INSUFFICIENT,0.0,0.5,advisory_missing,242,Madras Legislative Council (1861–91,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,,,,,,,,closed_book,36,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5add74b95542992ae4cec56f,,,,,,,,closed_book,36,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5abb61c0554299642a094a86,,,,,,,,closed_book,38,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a77afcd5542997042120adf,,,,,,,,closed_book,38,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a72a4645542991f9a20c54c,,,,,,,,closed_book,40,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abbdb335542992ccd8e7fc1,,,,,,,,closed_book,41,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a793f505542994bb9456fd1,,,,,,,,closed_book,41,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8642045542991e771815e2,,,,,,,,closed_book,41,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8dd9d25542995a26add420,,,,,,,,closed_book,41,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,,,,,,,,closed_book,41,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,answer_in_question,True,0,0,0
+5a8762205542996e4f3087b8,,,,,,,,closed_book,42,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,yesno,False,0,0,0
+5a9080275542995651fb5175,,,,,,,,closed_book,42,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae7316e554299572ea5477e,,,,,,,,closed_book,42,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,,,,,,,,closed_book,44,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8cbce1554299653c1aa103,,,,,,,,closed_book,44,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a85cd295542997175ce202b,,,,,,,,closed_book,46,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a71674f5542994082a3e819,,,,,,,,closed_book,46,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae76e615542997ec2727647,,,,,,,,closed_book,47,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ade157e55429939a52fe802,,,,,,,,closed_book,48,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae72c7d5542991e8301cb91,,,,,,,,closed_book,48,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5abe3e545542993f32c2a0c7,,,,,,,,closed_book,49,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7bd286554299683c1c62bd,,,,,,,,closed_book,49,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab3bfd3554299233954ff99,,,,,,,,closed_book,51,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a778e8755429949eeb29ef4,,,,,,,,closed_book,52,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,,,,,,,,closed_book,52,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a7c5de155429935c91b5179,,,,,,,,closed_book,53,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5a8f55aa554299458435d5bc,,,,,,,,closed_book,55,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5adf37a95542995ec70e8f97,,,,,,,,closed_book,55,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5aba8f1b55429955dce3ee85,,,,,,,,closed_book,59,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,False,0,0,0
+5a866e7e554299211dda2b29,,,,,,,,closed_book,67,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,,,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,,,,,restored,308,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ab969ca55429970cfb8eac9,full,1.0,1.0,,,,,restored_ctrl,308,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5abb61c0554299642a094a86,full,1.0,1.0,,,,,restored_ctrl,322,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,yesno,False,0,0,0
+5abb61c0554299642a094a86,full,1.0,1.0,,,,,restored,323,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,yesno,False,0,0,0
+5ae7316e554299572ea5477e,full,1.0,1.0,,,,,restored,323,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ae7316e554299572ea5477e,full,1.0,1.0,,,,,restored_ctrl,323,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a81a2705542990a1d231e30,full,1.0,1.0,,,,,restored,336,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,answer_in_question,True,0,0,0
+5a81a2705542990a1d231e30,full,1.0,1.0,,,,,restored_ctrl,336,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,,,,,restored,344,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,answer_in_question,True,0,0,0
+5a793f505542994bb9456fd1,full,1.0,1.0,,,,,restored_ctrl,345,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,answer_in_question,True,0,0,0
+5a71674f5542994082a3e819,full,1.0,1.0,,,,,restored_ctrl,348,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a71674f5542994082a3e819,full,1.0,1.0,,,,,restored,349,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,,,,,restored,351,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a9080275542995651fb5175,full,1.0,1.0,,,,,restored_ctrl,351,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a8762205542996e4f3087b8,full,1.0,1.0,,,,,restored_ctrl,353,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,yesno,False,0,0,0
+5a8762205542996e4f3087b8,full,1.0,1.0,,,,,restored,354,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,yesno,False,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,,,,,restored,374,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,answer_in_question,True,0,0,0
+5a77afcd5542997042120adf,full,1.0,1.0,,,,,restored_ctrl,374,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,answer_in_question,True,0,0,0
+5a8dd9d25542995a26add420,full,1.0,1.0,,,,,restored_ctrl,383,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,correct,answer_in_question,True,0,0,0
+5a778e8755429949eeb29ef4,full,1.0,1.0,,,,,restored,384,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a778e8755429949eeb29ef4,full,1.0,1.0,,,,,restored_ctrl,384,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a8dd9d25542995a26add420,full,1.0,1.0,,,,,restored,384,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,answer_in_question,True,0,0,0
+5a7bd286554299683c1c62bd,full,1.0,1.0,,,,,restored,411,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a7bd286554299683c1c62bd,full,1.0,1.0,,,,,restored_ctrl,411,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,,,,,restored,413,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a8642045542991e771815e2,full,1.0,1.0,,,,,restored_ctrl,419,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,,,,,restored_ctrl,421,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a85cd295542997175ce202b,full,1.0,1.0,,,,,restored,423,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,,,,,restored_ctrl,429,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5ae72c7d5542991e8301cb91,full,1.0,1.0,,,,,restored,430,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,,,,,restored,432,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ab3bfd3554299233954ff99,full,1.0,1.0,,,,,restored_ctrl,432,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,,,,,restored,433,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5adf37a95542995ec70e8f97,full,1.0,1.0,,,,,restored_ctrl,433,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5add74b95542992ae4cec56f,full,1.0,1.0,,,,,restored_ctrl,434,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,yesno,False,0,0,0
+5add74b95542992ae4cec56f,full,1.0,1.0,,,,,restored,435,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,yesno,False,0,0,0
+5ade157e55429939a52fe802,full,1.0,1.0,,,,,restored,442,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ade157e55429939a52fe802,full,1.0,1.0,,,,,restored_ctrl,443,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,,,,,restored,454,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,yesno,False,0,0,0
+5abbdb335542992ccd8e7fc1,full,1.0,1.0,,,,,restored_ctrl,455,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,yesno,False,0,0,0
+5a72a4645542991f9a20c54c,full,1.0,1.0,,,,,restored,457,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,,,,,restored,467,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ac2ea1a5542990b17b154a1,full,1.0,1.0,,,,,restored_ctrl,467,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a72a4645542991f9a20c54c,full,1.0,1.0,,,,,restored_ctrl,472,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,,,,,restored,475,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a8cbce1554299653c1aa103,full,1.0,1.0,,,,,restored_ctrl,475,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,,,,,restored,477,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5ae76e615542997ec2727647,full,1.0,1.0,,,,,restored_ctrl,478,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,,,,,restored_ctrl,504,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5ae5736e5542990ba0bbb2b3,full,1.0,1.0,,,,,restored,505,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,,,,,restored,515,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5abe3e545542993f32c2a0c7,full,1.0,1.0,,,,,restored_ctrl,515,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,,,,,restored_ctrl,539,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a7c5de155429935c91b5179,full,1.0,1.0,,,,,restored,543,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5aba8f1b55429955dce3ee85,full,1.0,1.0,,,,,restored,566,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,False,0,0,0
+5aba8f1b55429955dce3ee85,full,1.0,1.0,,,,,restored_ctrl,567,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,False,0,0,0
+5a8f55aa554299458435d5bc,full,1.0,1.0,,,,,restored,568,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,,,,,restored,571,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,drop_ans,hallucination,open,True,0,0,1
+5a866e7e554299211dda2b29,full,1.0,1.0,,,,,restored_ctrl,571,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1
+5a8f55aa554299458435d5bc,full,1.0,1.0,,,,,restored_ctrl,576,I DON'T KNOW,substantive,0,1,0.0,0.0,0,1,0,full,hallucination,open,True,0,0,1

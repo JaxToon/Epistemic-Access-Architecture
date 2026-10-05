@@ -1,0 +1,5 @@
+{
+  "n_excluded": 0,
+  "ids": [],
+  "rule": "not exactly 2 gold paragraphs with valid sentences, or too few distractor sentences"
+}

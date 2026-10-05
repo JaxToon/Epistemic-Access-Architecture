@@ -1,0 +1,3 @@
+gate_score,n,aurc,ci95_lo,ci95_hi,random_gate
+reader_p_suff,84,1.0,1.0,1.0,1.0
+oracle,84,1.0,1.0,1.0,1.0

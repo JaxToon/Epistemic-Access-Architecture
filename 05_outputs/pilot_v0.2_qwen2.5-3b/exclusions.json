@@ -1,0 +1,13 @@
+{
+  "n_excluded": 7,
+  "ids": [
+    "5a72f0e25542991f9a20c5cf",
+    "5ab69f13554299710c8d1ef3",
+    "5adbe9fa55429944faac23ba",
+    "5ae0e183554299422ee9953f",
+    "5a8cd381554299653c1aa12b",
+    "5ab67ce2554299710c8d1ead",
+    "5a713fb15542994082a3e6f0"
+  ],
+  "rule": "not exactly 2 gold paragraphs with valid sentences, or too few distractor sentences"
+}
