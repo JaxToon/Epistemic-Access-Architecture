@@ -1,0 +1,4 @@
+=== 2026-10-06 08:43:06 1/6 study2 run Qwen2.5-3B (resume, bs 4; no-op if complete)
+=== 2026-10-06 08:46:21 2/6 judge study2 3B
+=== 2026-10-06 08:48:53 3/6 phase 1b generate (eag_lc1, advisory + placebo)
+=== 2026-10-06 09:10:47 4/6 study2 run Qwen2.5-1.5B

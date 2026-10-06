@@ -1,0 +1,11 @@
+=== 2026-10-06 07:42:06 1/6 evaluate pilot
+=== 2026-10-06 07:42:09 2/6 analyze pilot
+=== 2026-10-06 07:42:22 5/6 train heads
+=== 2026-10-06 07:47:37 6/6 evaluate EAG
+=== 2026-10-06 07:47:57 DONE
+=== 2026-10-06 07:47:57 1/8 judge pilot ambiguous answers
+=== 2026-10-06 07:49:52 2/8 judge vs Claude audit agreement
+=== 2026-10-06 07:49:52 3/8 re-evaluate pilot
+=== 2026-10-06 07:49:55 4/8 re-analyze pilot
+=== 2026-10-06 07:50:08 5/8 EAG evaluate on corrected labels
+=== 2026-10-06 07:50:31 6/8 study2 run (Qwen2.5-3B)

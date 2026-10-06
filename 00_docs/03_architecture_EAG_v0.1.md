@@ -12,7 +12,7 @@ LLM standar memberi generator **otoritas penuh** atas distribusi output. Probabi
 
 Keduanya tidak mengubah siapa yang berwenang memutuskan sebuah klaim boleh keluar.
 
-Pilot #1 menguji ini secara langsung lewat H3a: apakah sinyal epistemik yang hanya *disampaikan* (advisory) diabaikan generator? Kawada & Kellis (2026) melaporkan hal serupa di level internal: representasi verifikasi dapat di-decode, tetapi tidak efektif secara kausal. Jika H3a menunjukkan advisory ≈ off, itu motivasi empiris untuk menanam otoritas epistemik **di dalam arsitektur**, bukan di prompt.
+Pilot #1 menguji ini secara langsung lewat H3a: apakah sinyal epistemik yang hanya *disampaikan* (advisory) diabaikan generator? Kawada & Kellis (2026) melaporkan hal serupa di level internal: representasi verifikasi dapat di-decode, tetapi efek kausalnya **bergantung model** (steering/patching: nol pada Llama-3.1-70B, lemah pada Qwen3-8B, signifikan pada Gemma-4-31B; koreksi 2026-10-05 setelah deep-read). Jika H3a menunjukkan advisory ≈ off, itu motivasi empiris untuk menanam otoritas epistemik **di dalam arsitektur**, bukan di prompt.
 
 Analogi (inspirasi fungsional saja): sistem verbal pada split-brain menyusun narasi tanpa akses ke informasi penyebab. EAG menambah jalur yang (1) membaca evidence yang benar-benar sampai, dan (2) berwenang menahan narasi.
 

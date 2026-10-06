@@ -95,14 +95,17 @@ class HFBackend:
             enc = self.tok(texts, return_tensors="pt", padding=True, add_special_tokens=False).to("cuda")
         finally:
             self.tok.padding_side = "left"
-        with torch.inference_mode():
-            logp = torch.log_softmax(self.model(**enc).logits.float(), dim=-1)
         ids, mask = enc["input_ids"], enc["attention_mask"]
         scores = []
-        for r in range(len(texts)):
-            nb, end = n_base[r // len(options)], int(mask[r].sum())
-            pos = torch.arange(nb, end, device=ids.device)
-            scores.append(float(logp[r, pos - 1, ids[r, pos]].sum()))
+        with torch.inference_mode():
+            # only project the few continuation positions through lm_head (full-vocab logits over
+            # the whole prompt would be ~GBs and spill out of VRAM)
+            hidden = self.model.model(**enc).last_hidden_state
+            for r in range(len(texts)):
+                nb, end = n_base[r // len(options)], int(mask[r].sum())
+                pos = torch.arange(nb, end, device=ids.device)
+                logp = torch.log_softmax(self.model.lm_head(hidden[r, pos - 1]).float(), dim=-1)
+                scores.append(float(logp[torch.arange(len(pos)), ids[r, pos]].sum()))
         return [scores[i * len(options):(i + 1) * len(options)] for i in range(len(batch))]
 
 

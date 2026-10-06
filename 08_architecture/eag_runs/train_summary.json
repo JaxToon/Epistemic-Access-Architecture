@@ -1,0 +1,134 @@
+[
+  {
+    "name": "probe_lc1_s0",
+    "variant": "probe",
+    "lambda_c": 1.0,
+    "seed": 0,
+    "n_pairs": 3545,
+    "epochs": 13,
+    "epoch": 7,
+    "val_bce": 0.28407883644104004,
+    "val_auroc": 0.9525368341363264
+  },
+  {
+    "name": "probe_lc1_s1",
+    "variant": "probe",
+    "lambda_c": 1.0,
+    "seed": 1,
+    "n_pairs": 3545,
+    "epochs": 9,
+    "epoch": 3,
+    "val_bce": 0.2933669090270996,
+    "val_auroc": 0.9503675184839271
+  },
+  {
+    "name": "probe_lc1_s2",
+    "variant": "probe",
+    "lambda_c": 1.0,
+    "seed": 2,
+    "n_pairs": 3545,
+    "epochs": 12,
+    "epoch": 6,
+    "val_bce": 0.28895118832588196,
+    "val_auroc": 0.953225995581138
+  },
+  {
+    "name": "qe_lc1_s0",
+    "variant": "qe",
+    "lambda_c": 1.0,
+    "seed": 0,
+    "n_pairs": 3545,
+    "epochs": 10,
+    "epoch": 4,
+    "val_bce": 0.5508217215538025,
+    "val_auroc": 0.845106850881921
+  },
+  {
+    "name": "qe_lc1_s1",
+    "variant": "qe",
+    "lambda_c": 1.0,
+    "seed": 1,
+    "n_pairs": 3545,
+    "epochs": 7,
+    "epoch": 1,
+    "val_bce": 0.5434945225715637,
+    "val_auroc": 0.8249056774559862
+  },
+  {
+    "name": "qe_lc1_s2",
+    "variant": "qe",
+    "lambda_c": 1.0,
+    "seed": 2,
+    "n_pairs": 3545,
+    "epochs": 7,
+    "epoch": 1,
+    "val_bce": 0.5281602144241333,
+    "val_auroc": 0.8261955408168723
+  },
+  {
+    "name": "eag_lc1_s0",
+    "variant": "eag",
+    "lambda_c": 1.0,
+    "seed": 0,
+    "n_pairs": 3545,
+    "epochs": 11,
+    "epoch": 5,
+    "val_bce": 0.26138582825660706,
+    "val_auroc": 0.960156696797765
+  },
+  {
+    "name": "eag_lc1_s1",
+    "variant": "eag",
+    "lambda_c": 1.0,
+    "seed": 1,
+    "n_pairs": 3545,
+    "epochs": 11,
+    "epoch": 5,
+    "val_bce": 0.24986131489276886,
+    "val_auroc": 0.9625569329641348
+  },
+  {
+    "name": "eag_lc1_s2",
+    "variant": "eag",
+    "lambda_c": 1.0,
+    "seed": 2,
+    "n_pairs": 3545,
+    "epochs": 13,
+    "epoch": 7,
+    "val_bce": 0.23831170797348022,
+    "val_auroc": 0.9636194759081502
+  },
+  {
+    "name": "eag_lc0_s0",
+    "variant": "eag",
+    "lambda_c": 0.0,
+    "seed": 0,
+    "n_pairs": 3545,
+    "epochs": 10,
+    "epoch": 4,
+    "val_bce": 0.23318830132484436,
+    "val_auroc": 0.9648183082423709
+  },
+  {
+    "name": "eag_lc0_s1",
+    "variant": "eag",
+    "lambda_c": 0.0,
+    "seed": 1,
+    "n_pairs": 3545,
+    "epochs": 10,
+    "epoch": 4,
+    "val_bce": 0.23576952517032623,
+    "val_auroc": 0.9660135404794918
+  },
+  {
+    "name": "eag_lc0_s2",
+    "variant": "eag",
+    "lambda_c": 0.0,
+    "seed": 2,
+    "n_pairs": 3545,
+    "epochs": 13,
+    "epoch": 7,
+    "val_bce": 0.23015189170837402,
+    "val_auroc": 0.96841634814379
+  }
+]

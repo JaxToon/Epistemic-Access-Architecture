@@ -22,7 +22,15 @@ GENERATOR = (
     "Question: {question}\nAnswer:"
 )
 
-ADVISORY = "Evidence reader assessment: {verdict}.{missing}\n\n"
+OPEN = (   # Study 2: no "use only the evidence" restriction; same abstention rule
+    "Here is some evidence that may or may not be relevant.\n\n"
+    "Evidence:\n{evidence}\n\n"
+    "Question: {question}\n"
+    f"If you cannot determine the answer, reply exactly: {ABSTAIN_TOKEN}. "
+    "Otherwise give only the short answer (a few words), no explanation.\nAnswer:"
+)
+
+ADVISORY ="Evidence reader assessment: {verdict}.{missing}\n\n"
 
 READER = (
     "You are the evidence reader of a question-answering system. Do NOT answer the question.\n"

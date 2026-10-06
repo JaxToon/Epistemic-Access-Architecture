@@ -26,7 +26,8 @@ import re
 import string
 from pathlib import Path
 
-ABSTAIN_PREFIXES = ["insufficient evidence", "i don t know", "i do not know"]
+# normalize_answer deletes apostrophes ("I DON'T KNOW" -> "i dont know"); keep both spellings
+ABSTAIN_PREFIXES = ["insufficient evidence", "i dont know", "i don t know", "i do not know"]
 NON_ANSWER_RE = re.compile(
     r"\b(?:(?:evidence|context|information|text|passage)s? (?:does not|doesn t|do not|did not)"
     r" (?:mention|provide|contain|state|specify|say|include|indicate)"
@@ -60,6 +61,9 @@ def response_class(pred: str) -> str:
     if n == "" or any(n.startswith(p) for p in ABSTAIN_PREFIXES):
         return "abstain"
     if NON_ANSWER_RE.search(" ".join(re.sub(r"[^\w\s]", " ", pred.lower()).split())):
+        return "non_answer"
+    # no factual claim: echoes of the sufficiency vocabulary or a bare evidence-unit citation
+    if re.fullmatch(r"(?:sufficient(?: evidence)?|e\d+)", n):
         return "non_answer"
     return "substantive"
 
@@ -95,10 +99,25 @@ def parse_reader(raw: str) -> tuple[str, str]:
     return "PARSE_ERROR", ""
 
 
-def label(pred: str, gold: str) -> dict:
+JUDGED: dict[tuple[str, str], bool] = {}   # filled from 06_evaluation/judge_cache.jsonl (eaa/judge.py)
+
+
+def label(pred: str, gold: str, item_id: str | None = None) -> dict:
+    """`correct` = tiered: rule-correct, or rule-ambiguous and judged correct (eaa/judge.py).
+    `correct_strict` = rule only (v0.2 containment), kept for sensitivity analysis.
+    Ambiguous predictions that were not judged fall back to strict and are flagged."""
     cls = response_class(pred)
     sub = cls == "substantive"
-    correct = sub and is_correct(pred, gold)
+    strict = sub and is_correct(pred, gold)
+    correct, judged, unjudged = strict, 0, 0
+    if sub and not strict and item_id is not None:
+        from .judge import rule_verdict
+        if rule_verdict(pred, gold) == "ambiguous":
+            j = JUDGED.get((item_id, normalize_answer(pred)))
+            if j is None:
+                unjudged = 1
+            else:
+                judged, correct = 1, j
     return {
         "response_class": cls,
         "abstain": int(not sub),            # abstain or non_answer (withheld)
@@ -107,6 +126,10 @@ def label(pred: str, gold: str) -> dict:
         "f1": f1_score(pred, gold),
         "correct": int(correct),
         "hallucination": int(sub and not correct),
+        "correct_strict": int(strict),
+        "hallucination_strict": int(sub and not strict),
+        "judge_used": judged,
+        "judge_missing": unjudged,
         "verbose": int(len(normalize_answer(pred).split()) > len(normalize_answer(gold).split()) + 8),
     }
 
@@ -126,7 +149,10 @@ def evaluate(run_dir: Path, items_path: Path) -> Path:
     import pandas as pd
 
     from .data import load_items
+    from .judge import load_cache
 
+    JUDGED.clear()
+    JUDGED.update(load_cache())
     gold = {it["id"]: it["answer"] for it in load_items(items_path)}
     recs = {}
     with open(run_dir / "generations.jsonl", encoding="utf-8") as f:
@@ -160,7 +186,7 @@ def evaluate(run_dir: Path, items_path: Path) -> Path:
             base["reader_p_suff"] = 1 / (1 + math.exp(lp["INSUFFICIENT"] - lp["SUFFICIENT"]))
 
         def add(system, out, ptok):
-            rows.append({**base, "system": system, "prompt_tokens": ptok, "output": out, **label(out, g)})
+            rows.append({**base, "system": system, "prompt_tokens": ptok, "output": out, **label(out, g, iid)})
 
         off = recs.get(f"{iid}|off|{lv}")
         if off:
@@ -183,10 +209,10 @@ def evaluate(run_dir: Path, items_path: Path) -> Path:
         if r["task"] == "closed_book":
             rows.append({"item_id": iid, "system": "closed_book", "level": None,
                          "prompt_tokens": r["prompt_tokens"], "output": r["output"],
-                         **label(r["output"], gold[iid])})
+                         **label(r["output"], gold[iid], iid)})
         elif r["task"] in {"restored", "restored_ctrl"}:
             t1 = recs.get(f"{iid}|off|{r['level']}")
-            t1_lab = label(t1["output"], gold[iid]) if t1 else {}
+            t1_lab = label(t1["output"], gold[iid], iid) if t1 else {}
             t1_status = ("correct" if t1_lab.get("correct") else
                          "hallucination" if t1_lab.get("hallucination") else "abstain")
             rows.append({"item_id": iid, "system": r["task"], "level": "full",
@@ -194,7 +220,7 @@ def evaluate(run_dir: Path, items_path: Path) -> Path:
                          "gold_kept_frac": 1.0,
                          "answer_available": available(packets[(iid, "full")]),
                          "prompt_tokens": r["prompt_tokens"], "output": r["output"],
-                         **label(r["output"], gold[iid])})
+                         **label(r["output"], gold[iid], iid)})
 
     df = pd.DataFrame(rows)
     df["qclass"] = df["item_id"].map(qclass)

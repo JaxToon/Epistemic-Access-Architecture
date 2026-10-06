@@ -20,6 +20,7 @@ Design invariants (tests/test_conditions.py):
 from __future__ import annotations
 
 import random
+import re
 from dataclasses import dataclass, field
 from typing import Callable
 
@@ -71,6 +72,18 @@ def _contains(text: str, answer_norm: str) -> bool:
     return bool(answer_norm) and f" {answer_norm} " in f" {normalize_answer(text)} "
 
 
+_CAP = re.compile(r"(?<![.!?]\s)(?<!^)\b[A-Z][\w'’-]+(?:\s+[A-Z][\w'’-]+)*")
+_NUM = re.compile(r"\b\d[\d,.]*\b")
+
+
+def candidate_density(text: str, numeric: bool) -> int:
+    """Number of answer-type candidate spans in a sentence: numbers for numeric answers,
+    otherwise non-sentence-initial capitalised spans (names, titles, places)."""
+    if numeric:
+        return len(_NUM.findall(text))
+    return len(_CAP.findall(text.strip()))
+
+
 def question_class(item: dict) -> str:
     a, q = normalize_answer(item["answer"]), normalize_answer(item["question"])
     if a in {"yes", "no"}:
@@ -85,8 +98,12 @@ def plan_item(
     seed: int,
     n_extra: int,
     length_fn: Callable[[str], int],
+    filler_policy: str = "length",
 ) -> ItemPacketPlan | None:
-    """Return None if the item cannot be built cleanly (logged as exclusion)."""
+    """Return None if the item cannot be built cleanly (logged as exclusion).
+
+    filler_policy: "length" (pilot: closest length) | "entity_rich" | "entity_poor" (Study 2:
+    among length-matched candidates, the most / least answer-type-candidate-dense sentence)."""
     rng = random.Random(f"{seed}-{item['id']}")
     ans = normalize_answer(item["answer"])
     by_title = {p["title"]: p["sentences"] for p in item["context"]}
@@ -133,14 +150,23 @@ def plan_item(
     rng.shuffle(slots)
 
     pool_lens = [length_fn(f"{u.title} {u.text}") for u in pool]
+    numeric = any(ch.isdigit() for ch in item["answer"])
+    dens = [candidate_density(u.text, numeric) for u in pool] if filler_policy != "length" else None
     used: set[int] = set()
     filler_for_slot: dict[int, Unit] = {}
     for i, u in enumerate(slots):
         if not u.gold:
             continue
         target = length_fn(f"{u.title} {u.text}")
-        best = min((j for j in range(len(pool)) if j not in used),
-                   key=lambda j: (abs(pool_lens[j] - target), j))
+        free = [j for j in range(len(pool)) if j not in used]
+        if filler_policy == "length":
+            best = min(free, key=lambda j: (abs(pool_lens[j] - target), j))
+        else:   # Study 2: length-matched within tolerance, then most / least candidate-dense
+            tol = max(3, round(0.15 * target))
+            near = [j for j in free if abs(pool_lens[j] - target) <= tol] or \
+                   [min(free, key=lambda j: (abs(pool_lens[j] - target), j))]
+            sign = -1 if filler_policy == "entity_rich" else 1
+            best = min(near, key=lambda j: (sign * dens[j], abs(pool_lens[j] - target), j))
         used.add(best)
         filler_for_slot[i] = pool[best]
 

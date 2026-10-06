@@ -1,0 +1,9 @@
+{
+  "n": 180,
+  "agreement": 0.8167,
+  "cohen_kappa": 0.6121,
+  "judge_yes_audit_no": 4,
+  "judge_no_audit_yes": 29,
+  "audit_correct_rate": 0.7056,
+  "judge_correct_rate": 0.5667
+}

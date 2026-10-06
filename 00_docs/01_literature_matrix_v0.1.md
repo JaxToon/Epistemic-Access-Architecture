@@ -16,7 +16,7 @@ Gekhman et al. (COLM 2025) [V] mengukur knowledge internal (hidden states) vs ek
 → **Konsekuensi:** Paper/Study 1 di rencana awal ("Knowledge Presence vs Knowledge Accessibility") **tidak bisa lagi diklaim sebagai temuan baru** dalam bentuk umum. Novelty harus datang dari *penyempurnaan* (lihat F5).
 
 ### F2 — "Evidence terbaca tapi tidak mengontrol generation" **sudah ditunjukkan secara mekanistik**
-Kawada & Kellis (arXiv, 3 Sep 2026) [V]: 10 juta trial, 12 LLM, 4 family. Model mengintegrasikan kandidat jawaban eksternal *bahkan setelah secara internal memverifikasi bahwa kandidat itu tidak valid* (93–100%). Representasi verifikasi **dapat di-decode tetapi tidak efektif secara kausal**, dan sepenuhnya terpisah (dissociable) dari state integrasi kandidat.
+Kawada & Kellis (arXiv, 3 Sep 2026) [V]: 10 juta trial, 12 LLM, 4 family. Model mengintegrasikan kandidat jawaban eksternal *bahkan setelah secara internal memverifikasi bahwa kandidat itu tidak valid* (93–100%). Representasi verifikasi dapat di-decode, tetapi efek kausalnya **bergantung model** (steering/patching: nol pada Llama-3.1-70B, lemah pada Qwen3-8B, signifikan pada Gemma-4-31B; koreksi 2026-10-05 setelah deep-read), dan sepenuhnya terpisah (dissociable) dari state integrasi kandidat.
 
 → Ini adalah dukungan empiris terkuat untuk premis H2 ("epistemic state ada tapi tidak punya *authority* atas generation" — Access tipe F di context file). Tapi ini juga **mengambil sebagian ruang Study 3 (mekanistik)**. Prioritas baca penuh #1.
 
@@ -62,7 +62,7 @@ Kombinasi *audit corpus* (Pythia/LMEnt) **+** *probe hidden knowledge* (gaya Gek
 | # | Work | Venue/Tahun | Ver. | Inti | Relasi ke tesis | Yang masih terbuka | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | Gekhman et al., *Inside-Out: Hidden Factual Knowledge in LLMs* | COLM 2025 | V | Internal vs external knowledge; gap 40%; jawaban yang diketahui tapi tidak pernah di-generate | **Hampir identik dengan H1/Study 1** (parametrik) | Tanpa audit corpus; tanpa intervensi restorasi kausal; tanpa link ke halusinasi vs abstensi | **Ancaman novelty** |
-| 2 | Kawada & Kellis, *Evidence Integration in LLMs* | arXiv 2609.04290 (Sep 2026) | V | Verifikasi decodable tapi causally ineffective; integrasi kandidat terjadi di layer akhir | **Mendukung premis H2 / Access tipe F** | Tidak mengusulkan arsitektur; fokus evidence eksternal | **Ancaman novelty (Study 3)** + dukungan |
+| 2 | Kawada & Kellis, *Evidence Integration in LLMs* | arXiv 2609.04290 (Sep 2026) | V | Verifikasi decodable; efek kausal bergantung model (koreksi); integrasi kandidat terjadi di layer akhir | **Mendukung premis H2 / Access tipe F** | Tidak mengusulkan arsitektur; fokus evidence eksternal | **Ancaman novelty (Study 3)** + dukungan |
 | 3 | Saavedra, *Neural Arbitration Framework* | SSRN WP v5.1 (Apr 2026) | V | Generatif vs epistemik, arbitrase interuptif, split-brain | Prior art konseptual terdekat | Tanpa eksperimen sama sekali | Prior art konseptual |
 | 4 | Kusuma, Qorib & Ng, *Parametric Knowledge is Not All You Need* | Findings ACL 2026 | V | Benchmark honesty berbasis Pythia + retrieval dari pretraining data | Substrat eksperimen (known/unknown terkontrol) | Tidak memisahkan B1/B2; fokus honesty | Fondasi |
 | 5 | Gottesman et al., *LMEnt* | TACL 2026 | V | 12 model ≤1B, 4.000 checkpoint, corpus beranotasi entitas (Wikipedia-grounded) | **Substrat alternatif yang mungkin lebih baik dari Pythia** untuk label exposure | Skala kecil (≤1B) | Fondasi (kandidat) |

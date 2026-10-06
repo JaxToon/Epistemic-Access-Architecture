@@ -131,3 +131,84 @@ Dengan kata lain, EAG ≈ (TokenMem/Flamingo adapter) × (pointer-generator gate
 - https://arxiv.org/html/2604.25313 · https://arxiv.org/pdf/2509.10208 · https://arxiv.org/html/2601.04131
 - https://arxiv.org/pdf/2609.08943
 - https://arxiv.org/abs/2604.22565 (HiLight, evidence highlighting untuk LLM frozen; pelengkap)
+
+---
+
+## 5. Deep-read results (5 Okt 2026)
+
+Metode: teks lengkap versi arxiv HTML (bukan hanya abstrak) untuk 5 paper. Label **[V-full]**. Catatan kejujuran: WebFetch mengembalikan ekstraksi dari model kecil, bukan salinan mentah. Angka dan kutipan di bawah berasal dari ekstraksi tersebut; sebelum dikutip di paper, buka PDF dan cocokkan angka serta rumus. Hal yang tidak muncul di ekstraksi saya tulis "tidak ditemukan", bukan "tidak ada".
+
+### 5.1 Compression-Aware Abstention (Khodabandehlou & Krishnamachari; arXiv 2608.29934; workshop GroundLM @ EMNLP 2026) [V-full]
+- **Metode:** LoRA rank 16 (10,1M param) pada empat proyeksi attention (q,k,v,o; MLP tidak diadaptasi) di Qwen2.5-7B-Instruct beku. Loss: SFT next-token biasa pada target berupa jawaban (Confident) atau string penolakan tetap t⊥ (Abstain). Keputusan abstain dibuat **di dalam generator** (LoRA mengubah generator itu sendiri), sebagai output teks biasa. Tidak ada σ yang dibaca keluar, tidak ada gate eksternal.
+- **Sumber sinyal:** label, bukan modul. Mask survival dari kompresor KV + span jawaban ketat (median 3 token). Confident jika survival min ≥ τ_hi, Abstain jika < τ_lo; contoh di antara 0,3 dan 0,8 dibuang.
+- **Sinyal latih:** ya, ini intervensi penghapusan evidence pembawa jawaban pada pertanyaan yang sama (~2,6K contoh MuSiQue 2-hop). **Kontrol panjang/posisi ada:** (10A) panjang tetap 500 token lintas retention (honest accuracy 0,147 Confident / 0,885 Abstain, sehingga masih lemah di sisi Confident); (10B) dua mask sama panjang, prioritas tinggi vs rendah: menjawab vs abstain, nol jawaban salah yakin; tes penggantian token jawaban dengan token acak pada panjang sama. Jadi klaim "matched length/position" EAG **bukan klaim baru**.
+- **Evaluasi:** MuSiQue val (463), RULER multi-key NIAH sampai 16K. Metrik: honest accuracy (benar menjawab + benar menolak). **Tidak ada risk-coverage/AURC** pada ekstraksi saya. Hanya titik operasi tunggal; sapuan threshold hanya pada baseline retention-ratio.
+- **Advisory vs authoritative pada sinyal yang sama:** **tidak.** Baseline P2 adalah instruksi prompt generik ("jika konteks tidak cukup, jawab ...") tanpa sinyal dari modul. P2 abstain berlebihan pada 49-51% contoh Confident vs 6-10% untuk adapter, jadi ini bukti tidak langsung bahwa instruksi teks kalah, tetapi bukan perbandingan pada informasi identik.
+- **Klaim yang sudah dilakukan:** supervisi abstain dari penghapusan evidence + kontrol panjang + modul kecil di model beku + hasil bahwa perilaku mengikuti isi evidence. Ini **mengambil hampir seluruh klaim C5** dan "bukan sekadar panjang".
+- **Terbuka (celah):** label span ketat tidak bisa mendeteksi hilangnya bridge evidence multi-hop (κ=0,61 dengan LLM-judge); hanya MuSiQue; tanpa AURC; tanpa Δ-sensitivity berpasangan per item; intervensi dari kompresor, bukan kanal reader; keputusan melebur dalam generator, sehingga tidak bisa dipisahkan "akses" vs "otoritas".
+- Status: **Ancaman novelty (C5) + Baseline wajib.** Kode/adapter dilaporkan publik di GitHub; ambil dan jalankan pada HotpotQA.
+
+### 5.2 Critic-Driven Decoding (Lango & Dušek; EMNLP 2023; arXiv 2310.16964) [V-full]
+- **Metode:** ln P(y_i|y_<i,x,c) ∝ λ·ln P(c|y_≤i,x) + ln P(y_i|y_<i,x). Critic = XLM-R-base + kepala klasifikasi (FC+SELU+sigmoid) membaca data + prefiks + token kandidat. Generator BART-base beku; hanya critic dilatih (BCE). Critic dievaluasi hanya untuk top-k=5 token; λ warmup min(i/5,1)·λ; λ=0,25 (WebNLG), 1 (OpenDialKG).
+- **Sinyal latih:** negatif sintetis dari perturbasi **output** (token terakhir diganti acak; kalimat diganti; token dari top-5 LM vanilla/fine-tuned; kalimat hasil model mulai dari titik menyimpang). Tidak ada intervensi pada input/evidence. Tidak ada kontrol panjang/posisi untuk intervensi evidence.
+- **Evaluasi:** WebNLG, OpenDialKG; BLEU, METEOR, BERTScore, NLI, BLEURT, anotasi manual 100 contoh (halusinasi mayor 0,40 → 0,29; NLI 0,841 → 0,868). Tidak ada risk-coverage.
+- **Advisory vs authoritative:** **tidak dibandingkan** (paper menyebut reranking sebagai pendekatan lazim, tetapi tidak mengujinya). Critic di sini otoritatif-lunak: sinyalnya masuk ke logit, tetapi tidak bisa abstain dan selalu harus memilih token.
+- **Klaim yang sudah dilakukan:** skor support per token yang dilatih memodulasi distribusi generator beku (C2+C3-lunak+C4). Jangan klaim "support score yang mengendalikan decoding" sebagai baru.
+- **Terbuka:** tak ada abstensi; tak ada ablasi advisory/authoritative; kandidat dibatasi top-5; lambat; di data-to-text, bukan QA.
+- Status: **Baseline + Ancaman novelty parsial (C2/C3).** Implementasi baseline mudah: ganti critic dengan classifier [q, E, prefiks, kandidat].
+
+### 5.3 TokenMem (Yu et al.; arXiv 2607.22625) [V-full]
+- **Metode:** satu adapter per layer, diterapkan setelah blok penuh (self-attn + MLP), cross-attention ke representasi memori dengan softmax sendiri; memakai ulang W_Q,W_K,W_V beku LLM; parameter latih = low-rank A,B (r=16, α=32, B zero-init) bobot ~3-7M untuk model 4B-14B. "Gate" di sini = modulasi low-rank zero-init, bukan skor skalar per token yang dibaca keluar; gate tidak disupervisi (analisis mekanistik: aktivasi puncak layer 10, 12, 19).
+- **Sinyal latih:** Fase 1: 50K QA CoT berita, next-token. Fase 2: campuran D_correct + D_cf (2x oversampling), 40 epoch; D_cf = passage yang mendukung jawaban salah menurut dunia tapi ditetapkan otoritatif (minimal edit). **Substitusi, bukan penghapusan.** Tidak ada kasus tanpa evidence → abstain.
+- **Evaluasi:** News (8.663), MMLU (14.042), MedQA (1.273), cf_arc_easy (2.745), cf_medqa (1.146); metrik Knowledge Compliance (KC): 69-70% vs 20-52% VanillaRAG pada lima model. Biaya: akurasi pada pengetahuan benar 85,3% vs 95,4% (News). Tidak ada AURC.
+- **Advisory vs authoritative:** tidak; kanal diperlakukan otoritatif sejak desain ("high compliance is the design goal"), dan satu-satunya pembanding adalah RAG prompt. Dengan kata lain TokenMem adalah **otoritas atas isi evidence** (patuh), bukan otoritas atas **apakah menjawab**.
+- **Klaim yang sudah dilakukan:** kanal cross-attention beku-LLM + kurikulum kontrafaktual, dan temuan bahwa fase 2 esensial (tanpa fase 2 kinerja runtuh). Jangan klaim C1 sebagai baru; kutip untuk desain adapter.
+- **Terbuka:** kepatuhan buta pada evidence salah/tidak cukup; tanpa abstain; regresi OOD pada dua model non-Qwen.
+- Status: **Dukungan + Baseline arsitektur (C1).** Menarik: TokenMem menunjukkan kepatuhan terhadap kanal bisa dilatih; EAG menambah sisi "menahan".
+
+### 5.4 RINSE (Chen, Hua, Xiao; arXiv 2609.37469) [V-full]
+- **Metode:** gate **pra-generasi**, tanpa akses ke state generator. s(q,E)=Σ_r [h_r − ĉ_r(|E|) − μ̂_r]/σ̂_r dengan tiga pembaca: (1) content coverage (jendela 4-WordPiece, IDF, reranker 118M, kepala conditional-logistic); (2) answer-span (RoBERTa-base 125M dilatih di Natural Questions dengan supervisi null); (3) cross-passage latent: Qwen2.5-1.5B-Instruct beku, state token terakhir layer 17 diproyeksikan ke arah (sufficient − insufficient). Koreksi ukuran |E| dengan tren log; z-score.
+- **Sinyal latih:** pasangan sufficient/insufficient dari 13.600 rekaman (MuSiQue, 2Wiki, IIRC, SQuAD 2.0, HotpotQA, CRAG), fit per-fold tanpa keluarga yang dievaluasi.
+- **Benchmark:** tiga konstruksi berpasangan dengan audit cue: substitusi (jumlah passage tetap), **deletion** (NeoQA, ukuran 1-120; hitungan passage saja = 0,563), question swap (SQuAD 2.0, Wikipedia segar). Kontrol ukuran dan cue lexical sangat eksplisit (min-IDF coverage 0,941 pada substitusi HotpotQA, jatuh ke 0,510 dengan +20 passage). Ini standar kontrol yang EAG harus penuhi.
+- **Evaluasi:** pairwise accuracy (PA) dan within-group ROC-AUC, bootstrap klaster. Rata-rata PA 0,837 (enam dataset), min 0,684; terbaik berikutnya Self-RAG 0,746; API frontier 0,784; 36,5 ms/pertanyaan. **Tidak ada AURC/risk-coverage.** Sebagai gate pada 12 generator: tingkat menjawab pada evidence tak cukup 0,636 → 0,511, hemat 13,3% waktu generasi.
+- **Advisory vs authoritative:** **tidak ada ablasi** skor RINSE sebagai instruksi prompt vs gate keras. RINSE hanya memakai hard gate. Argumen mereka: pelatihan abstain "mengikat keputusan ke bobot model dan butuh generasi penuh".
+- **Klaim yang sudah dilakukan:** (a) benchmark kontrafaktual berpasangan dengan kontrol cue/ukuran; (b) gate sufficiency keras pra-generasi; (c) argumen "relevance ≠ sufficiency". Pernyataan bahwa abstention training mengajarkan batas pengetahuan generator bukan penilaian evidence juga dibuat di sini.
+- **Terbuka:** tanpa state generator (tidak bisa mendeteksi bahwa generator akan mengarang meski evidence cukup, atau sebaliknya); tanpa per-token/per-klaim; tanpa AURC; efek ke generator hanya dilaporkan sebagai tingkat menjawab, bukan risk-coverage; tidak ada ablasi otoritas.
+- Status: **Baseline wajib (gate pra-generasi, evidence-only) + Ancaman novelty parsial** untuk framing "abstain dari penilaian evidence". Pakai kerangka PA dan benchmark substitusi/deletion mereka sebagai evaluasi tambahan.
+
+### 5.5 Kawada & Kellis, Evidence Integration in LLMs (arXiv 2609.04290) [V-full]
+- **Intervensi:** residual-stream patching/steering sepanjang "verification direction" v_ℓ, attention knockout, steering per kedalaman layer (serah-terima slot jawaban pada 79%/81% kedalaman untuk Llama/Qwen). Model: 12 LLM, 4 keluarga, 8 domain, ~10 juta trial.
+- **Hasil:** adopsi kandidat eksternal 93-100% (SAT) bahkan setelah model menolaknya secara terpisah; sampai 99,4% di domain ilmiah. Steering sepanjang arah verifikasi: Llama-3.1-70B nol efek, Qwen3-8B +0,077 logit/dosis, Gemma-4-31B +0,199 logit/dosis. Jadi **dissociation tidak seragam:** pada Gemma arah verifikasi punya efek kausal.
+- **Apakah mereka menguji verifikasi dengan otoritas kausal (gate keras)?** **Tidak.** Intervensinya mengubah arah aktivasi yang sudah ada (steering) dan mengukur efek; tidak ada intervensi yang memaksa "verification=invalid ⇒ tekan adopsi" sebagai fungsi gating, tidak ada perbandingan input vs enforced. Domain mereka: kandidat jawaban + logika/sains, bukan evidence-grounded QA dengan abstensi. **H3 dan framing EAG-sebagai-alat-kausal tidak ter-pre-empt.** Namun, koreksi pada kalimat di `03_architecture` ("tidak efektif secara kausal"): pada Gemma-4-31B efeknya signifikan. Tulis "tidak efektif pada Llama-3.1-70B, lemah pada Qwen3-8B, efektif pada Gemma-4-31B".
+- Status: **Dukungan (motivasi) + Metodologi (steering/patching).**
+
+### 5.6 Apakah kontribusi "advisory vs authoritative pada sinyal yang SAMA" bertahan?
+**Bertahan, dengan dua syarat.** Di lima paper tidak ada satu pun yang membandingkan sinyal identik sebagai input (advisory) vs hard gate. Paling dekat: P2 prompt di Compression-Aware Abstention (instruksi generik, bukan sinyal modul; ini perbandingan prompt vs fine-tuning, bukan sinyal yang sama), reranking vs in-decoding yang disebut tetapi tidak diuji di Critic-Driven Decoding, dan RINSE yang hanya menguji hard gate. Kawada & Kellis menguji steering, bukan gate. Catatan: ini berdasarkan pencarian ±25 query dan lima paper dibaca; ruang literatur tentang "gating vs conditioning" (mis. ablasi "σ as input feature vs σ as mixture" di pointer-generator, kNN-LM adaptif) belum disapu sistematis.
+Syarat 1: kontribusi ini adalah **ablasi kontrol**, bukan mekanisme; novelty ada pada desain eksperimen yang menjaga informasi identik (σ dari head yang sama, diberikan sebagai (i) token/embedding input ke generator dengan LoRA dilatih untuk menggunakannya, atau (ii) hard gate) dan mengukur AURC serta Δσ pada data yang sama. Syarat 2: varian advisory harus **dilatih** sama kerasnya (generator di-fine-tune untuk memakai σ). Jika tidak, hasil "advisory kalah" dapat dibantah sebagai kurang usaha.
+Yang TIDAK bertahan sebagai klaim baru: supervisi abstain dari penghapusan evidence, kontrol panjang/posisi, gate sufficiency keras (RINSE), skor support per token yang mengendalikan decoding (Critic-Driven), adapter cross-attn kontrafaktual (TokenMem).
+
+### 5.7 Yang HARUS EAG lakukan berbeda / kutip / jadikan baseline
+
+**Kerjakan berbeda (rumusan klaim):**
+1. Hapus dari daftar klaim: "label dari intervensi kanal, dicocokkan panjang dan posisi" (sudah di Compression-Aware Abstention). Ganti dengan: intervensi dilakukan pada **kanal reader** dan dipasangkan **per item** dengan Δσ sebagai tujuan eksplisit (loss kontrastif berpasangan + metrik access sensitivity), yang tidak ditemukan di kelimanya (CAA memakai SFT dan honest accuracy; RINSE memakai pasangan hanya untuk evaluasi).
+2. Posisikan kontribusi inti = **dekomposisi akses vs otoritas**: modul/sinyal identik, varian advisory (dilatih) vs authoritative (hard gate), plus varian "evidence-only" (RINSE-style) dan "state-only" (probe) untuk memisahkan siapa yang berkontribusi. Pembeda dari RINSE: σ membaca h_t generator; pembeda dari CAA: gate eksternal bisa disapu threshold (kurva risk-coverage/AURC), sedangkan CAA hanya titik operasi tunggal dan keputusan melebur dalam bobot generator.
+3. Laporkan **AURC/risk-coverage** sebagai metrik utama; tidak satu pun dari empat paper melaporkannya (RINSE: PA/AUC; CAA: honest accuracy; Critic: BLEU/NLI; TokenMem: KC). Ini celah evaluasi yang nyata, tetapi bukan novelty mekanisme.
+4. Perbaiki label: kontrol redundansi paragraf HotpotQA. Pasangan `drop_ans` perlu diverifikasi (mis. filter dengan model QA ekstraktif atau LLM-judge: apakah jawaban masih dapat diturunkan dari sisa paket). CAA melaporkan κ=0,61 untuk label span ketat dan tidak dapat mendeteksi bridge evidence; EAG harus menangani bridge (HotpotQA/MuSiQue) secara eksplisit, misalnya kondisi `drop_bridge`.
+5. Tambah kontrol yang sudah menjadi standar: matched-length (padding netral), evidence-eviction sama-panjang, penggantian token jawaban acak, audit cue lexical (RINSE: min-IDF coverage dan hitungan passage harus mendekati 0,5).
+6. Jangan klaim "pertama" untuk gate per token. Pertahankan gate pada commitment point (sudah di `03_architecture` §2.4) dan nyatakan sebagai pilihan desain.
+7. Koreksi framing Kawada & Kellis (lihat 5.5): efek kausal bervariasi antar model; jangan menulis "tidak efektif" secara umum.
+
+**Wajib dikutip:** Khodabandehlou & Krishnamachari 2026 (2608.29934); Lango & Dušek 2023 (2310.16964); Yu et al. 2026 TokenMem (2607.22625); Chen, Hua & Xiao 2026 RINSE (2609.37469); Kawada & Kellis 2026 (2609.04290); See et al. 2017 pointer-generator; Flamingo; Sufficient Context (Joren et al.); Pair-ID (2608.08944); KAFT (2211.05110); CAD.
+
+**Baseline yang harus dijalankan (urut prioritas):**
+1. **CAA-style LoRA** pada backbone EAG: SFT dengan target jawaban/`INSUFFICIENT EVIDENCE` dari pasangan full vs drop_ans yang sama persis (data identik, hanya mekanisme berbeda). Ini penguji paling tajam "apakah gate eksternal ber-σ lebih baik daripada SFT abstain".
+2. **RINSE** (pra-generasi, evidence-only) pada paket evidence yang sama, sapuan threshold untuk AURC. Gunakan juga skor RINSE sebagai input advisory ke generator.
+3. **Critic-Driven Decoding** diadaptasi: critic [q,E,prefiks,kandidat], λ warmup; untuk QA pendek, kombinasikan dengan ambang pada skor critic agar bisa abstain (dokumentasikan modifikasi).
+4. **Probe-only / evidence-only / EAG tanpa L_contrast** (sudah di `03_architecture` §5).
+5. Prompt advisory/enforced dari pilot; Sufficient Context selective generation; CAD; semantic entropy.
+6. **EAG-advisory-trained vs EAG-authoritative** pada σ yang sama (ablasi inti).
+
+**Risiko residual:** (i) reviewer menyebut EAG "CAA + RINSE dengan σ" dan menganggap kontribusi hanya inkremental; mitigasi: posisikan sebagai studi kausal akses-vs-otoritas dengan AURC; (ii) jika EAG-authoritative ≈ CAA-LoRA pada AURC, klaim arsitektur melemah dan hanya ablasi advisory/authoritative yang tersisa; (iii) ekstraksi WebFetch perlu diverifikasi terhadap PDF sebelum angka dikutip.
+
+### 5.8 Sumber tambahan sesi ini
+- https://arxiv.org/html/2608.29934 · https://arxiv.org/html/2310.16964v1 · https://arxiv.org/html/2607.22625 · https://arxiv.org/html/2609.37469 · https://arxiv.org/html/2609.04290

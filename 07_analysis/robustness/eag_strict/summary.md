@@ -1,0 +1,127 @@
+# EAG phase 1 — gates on pilot `off` outputs
+
+configs: ['eag_lc0', 'eag_lc1', 'probe_lc1', 'qe_lc1']; seeds per config: 3
+
+
+## PRIMARY: primary & answered (rows=505, items=258)
+
+```
+         gate   aurc  ci_lo  ci_hi
+      eag_lc0 0.6804 0.6202 0.7401
+      eag_lc1 0.6577 0.5952 0.7186
+    probe_lc1 0.6327 0.5686 0.6980
+       qe_lc1 0.6974 0.6340 0.7526
+reader_p_suff 0.6622 0.5940 0.7226
+     cue_only 0.6896 0.6231 0.7495
+  oracle_full 0.6322 0.5772 0.6851
+oracle_answer 0.6160 0.5568 0.6728
+       random 0.7089    NaN    NaN
+```
+
+Contrasts (AURC diff; negative = eag_lc1 better):
+
+```
+     id                contrast    diff   ci_lo   ci_hi     p  p_holm non_inferior
+    H5a eag_lc1 − reader_p_suff -0.0045 -0.0477  0.0386 0.820   0.820          NaN
+    H5b     eag_lc1 − probe_lc1  0.0250  0.0004  0.0476 0.048   0.144          NaN
+    H5c        eag_lc1 − qe_lc1 -0.0398 -0.0781  0.0011 0.056   0.144          NaN
+    cue      eag_lc1 − cue_only -0.0320 -0.0843  0.0181 0.216     NaN          NaN
+H6-AURC       eag_lc1 − eag_lc0 -0.0228 -0.0426 -0.0040 0.028     NaN         True
+```
+
+Per-level AURC (secondary):
+
+```
+     level  eag_lc0  eag_lc1  probe_lc1  qe_lc1  reader_p_suff  cue_only  oracle_full  oracle_answer   n
+  drop_all   1.0000   1.0000     1.0000  1.0000         1.0000    1.0000       1.0000         1.0000  31
+  drop_ans   0.9949   0.9955     0.9944  0.9953         0.9867    0.9873       0.9823         0.9823 113
+drop_other   0.6242   0.6178     0.6222  0.6577         0.5800    0.6658       0.5981         0.5981 107
+      full   0.6656   0.6243     0.5767  0.6574         0.5740    0.6038       0.5984         0.5984 254
+```
+
+Per-seed AURC:
+
+```
+         run   aurc
+probe_lc1_s0 0.6351
+probe_lc1_s1 0.6178
+probe_lc1_s2 0.6383
+   qe_lc1_s0 0.7038
+   qe_lc1_s1 0.6959
+   qe_lc1_s2 0.6866
+  eag_lc1_s0 0.6652
+  eag_lc1_s1 0.6480
+  eag_lc1_s2 0.6580
+  eag_lc0_s0 0.6844
+  eag_lc0_s1 0.6793
+  eag_lc0_s2 0.6809
+```
+
+
+## primary, all rows (rows=1244, items=311)
+
+```
+         gate   aurc  ci_lo  ci_hi
+      eag_lc0 0.4706 0.4230 0.5179
+      eag_lc1 0.4670 0.4178 0.5150
+    probe_lc1 0.4611 0.4115 0.5082
+       qe_lc1 0.3766 0.3319 0.4211
+reader_p_suff 0.4902 0.4417 0.5374
+     cue_only 0.3844 0.3359 0.4330
+  oracle_full 0.3806 0.3388 0.4214
+oracle_answer 0.3290 0.2900 0.3675
+       random 0.2878    NaN    NaN
+```
+
+Contrasts (AURC diff; negative = eag_lc1 better):
+
+```
+     id                contrast    diff   ci_lo  ci_hi     p  p_holm non_inferior
+    H5a eag_lc1 − reader_p_suff -0.0232 -0.0479 0.0002 0.054   0.108          NaN
+    H5b     eag_lc1 − probe_lc1  0.0059 -0.0052 0.0168 0.346   0.346          NaN
+    H5c        eag_lc1 − qe_lc1  0.0904  0.0626 0.1180 0.001   0.003          NaN
+    cue      eag_lc1 − cue_only  0.0826  0.0515 0.1143 0.001     NaN          NaN
+H6-AURC       eag_lc1 − eag_lc0 -0.0036 -0.0131 0.0059 0.486     NaN        False
+```
+
+
+## all items, answered (rows=753, items=388)
+
+```
+         gate   aurc  ci_lo  ci_hi
+      eag_lc0 0.5506 0.4869 0.6063
+      eag_lc1 0.5462 0.4837 0.5986
+    probe_lc1 0.5290 0.4702 0.5831
+       qe_lc1 0.5840 0.5251 0.6395
+reader_p_suff 0.5404 0.4789 0.5952
+     cue_only 0.5628 0.5012 0.6201
+  oracle_full 0.5173 0.4653 0.5627
+oracle_answer 0.4949 0.4410 0.5441
+       random 0.5843    NaN    NaN
+```
+
+Contrasts (AURC diff; negative = eag_lc1 better):
+
+```
+     id                contrast    diff   ci_lo   ci_hi     p  p_holm non_inferior
+    H5a eag_lc1 − reader_p_suff  0.0057 -0.0333  0.0436 0.810   0.810          NaN
+    H5b     eag_lc1 − probe_lc1  0.0171 -0.0035  0.0377 0.088   0.176          NaN
+    H5c        eag_lc1 − qe_lc1 -0.0379 -0.0743 -0.0025 0.046   0.138          NaN
+    cue      eag_lc1 − cue_only -0.0167 -0.0617  0.0270 0.494     NaN          NaN
+H6-AURC       eag_lc1 − eag_lc0 -0.0045 -0.0206  0.0119 0.600     NaN        False
+```
+
+
+## Access sensitivity (primary items, all rows; drop_other never seen in training)
+
+```
+         gate  dsig_full-drop_ans  dsig_full-drop_other (UNTRAINED)  pairacc_full>drop_ans  pairacc_full>drop_other  auroc_suff(full)
+      eag_lc0              0.6257                            0.5662                 0.9807                   0.9871            0.9425
+      eag_lc1              0.6497                            0.5835                 0.9904                   0.9871            0.9444
+    probe_lc1              0.6184                            0.5631                 0.9904                   0.9807            0.9416
+       qe_lc1              0.3415                            0.2801                 0.9228                   0.8939            0.8158
+reader_p_suff              0.1925                            0.2319                 0.9357                   0.9453            0.8732
+     cue_only              0.1699                            0.2629                 0.8167                   0.9260            0.8129
+```
+
+{'H6: Δσ_untrained(eag_lc1) − Δσ_untrained(eag_lc0)': np.float32(0.017264545), 'ci_lo': np.float32(0.0027936534), 'ci_hi': np.float32(0.031529494), 'p': 0.014}

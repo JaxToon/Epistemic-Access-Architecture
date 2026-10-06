@@ -1,0 +1,10 @@
+{"idx": 0, "item_id": "5a7fa1b05542994857a7678e", "pred_norm": "bernard lovell", "correct": true, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 1, "item_id": "5a85b2895542994c784ddb49", "pred_norm": "bank of china", "correct": true, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 2, "item_id": "5a8e1027554299653c1aa15f", "pred_norm": "2009", "correct": false, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 3, "item_id": "5ab808b85542991d3222380d", "pred_norm": "unspecified belief system", "correct": false, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 4, "item_id": "5ab95a63554299743d22eb06", "pred_norm": "sergio gato gracie", "correct": false, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 5, "item_id": "5ade99295542992fa25da7d8", "pred_norm": "modern scholarly linguistic and stylistic analysis", "correct": true, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 6, "item_id": "5ae0c29c5542993d6555ec46", "pred_norm": "wrestler", "correct": false, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 7, "item_id": "5ae18b555542997b2ef7d1f7", "pred_norm": "sufficient evidence 700 km", "correct": true, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 8, "item_id": "5ae1c214554299234fd042ed", "pred_norm": "cester", "correct": true, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}
+{"idx": 9, "item_id": "5ae4f2c75542993aec5ec0fb", "pred_norm": "denver international airport", "correct": false, "auditor": "Claude (session audit, 2026-10-06)", "policy": "same as audit_ambiguous_claude.jsonl"}

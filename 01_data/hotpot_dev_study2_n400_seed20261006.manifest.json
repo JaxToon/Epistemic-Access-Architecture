@@ -1,0 +1,8 @@
+{
+  "source": "01_data\\raw\\hotpot_qa_distractor_validation.parquet",
+  "source_sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "n": 400,
+  "seed": 20261006,
+  "excludes": "01_data\\hotpot_dev_n500_seed20261005.jsonl",
+  "sample_sha256": "e3cace78d9a06a7669115e9be8cf001079784bd22897f7a8a3c073e3c168159c"
+}

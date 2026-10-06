@@ -4,3 +4,8 @@
 *.onnx
 03_models/**/*.safetensors
 03_models/**/*.bin
+# data / caches
+01_data/raw/
+03_models/**/.cache/
+__pycache__/
+.pytest_cache/
