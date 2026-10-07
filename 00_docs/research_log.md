@@ -163,3 +163,34 @@ Temuan review dan perbaikannya:
   - authority@0.5 vs off: halusinasi −0,108 [−0,128; −0,089]; selective risk −0,124 [−0,156; −0,091]; benar −0,051 [−0,066; −0,038]; false refusal @full +0,084 [0,055; 0,113]. Sebagai pembanding, gate reader-prompt (pilot H4): +0,58.
   - Kurva risk–coverage authority: selective risk turun dari 0,485 (τ=0) ke ±0,35 (τ ≥ 0,5) lalu mendatar. Lantai ini adalah kesalahan salah-baca pada `full` yang tidak terdeteksi oleh gate berbasis kecukupan.
 - **Interpretasi (hati-hati):** sinyal epistemik yang sama tidak berpengaruh saat diberikan sebagai teks (value-insensitive, setara plasebo), tetapi mengurangi halusinasi ±11 pp saat diberi otoritas atas output, dengan biaya ±5 pp jawaban benar. Ini konsisten dengan tesis "masalahnya otoritas, bukan informasi". Keterbatasan: varian advisory tidak di-fine-tune (deep-read §5); satu model 3B; kontras primer gagal sehingga bukti ini sekunder.
+
+### Koreksi (2026-10-06): ukuran head EAG
+- Jumlah parameter terukur: probe 3,23 juta; qe/eag 3,37 juta (±0,11% dari Qwen2.5-3B). Angka "±1–2 juta" di `03_architecture_EAG_v0.1.md` §2.2 dan di versi awal briefing salah (dihitung dengan d_e saja, tanpa proyeksi h dari 3 layer × 2048). Briefing sudah dikoreksi.
+
+### Replikasi Studi 2: Qwen2.5-1.5B dan Qwen2.5-7B (4-bit) — selesai 10:15
+- 104 kasus ambigu baru diaudit Claude (46 benar) → `06_evaluation/audit_ambiguous_claude_replications.jsonl`.
+- **S2-H1** (rich vs poor, drop_ans, extractive): 1.5B −0,004 [−0,051; 0,039]; 7B −0,020 [−0,051; 0,012] → **tidak didukung**, konsisten dengan 3B.
+- **S2-H2** (drop_all): 1.5B −0,012; 7B +0,035 [0,008; 0,067], p 0,023, Holm 0,067 → tidak didukung setelah Holm (7B nyaris).
+- **S2-H3/H4** (karangan disalin dari paket): 1.5B 0,739 [0,680; 0,790] / open 0,845; 7B 0,837 [0,762; 0,892] / open 0,846 → **didukung** di semua ukuran.
+- **Eksploratif, lintas ukuran** (extractive, full → drop_ans poor, bootstrap item berpasangan):
+
+| model | halusinasi full → drop_ans | selisih [95% CI] | selective risk |
+|---|---|---|---|
+| 1.5B | 0,314 → 0,482 | +0,169 [0,098; 0,243] | 0,35 → 0,84 |
+| 3B | 0,278 → 0,318 | +0,039 [−0,024; 0,102] | 0,36 → 0,84 |
+| 7B | 0,157 → 0,251 | +0,094 [0,039; 0,149] | 0,19 → 0,75 |
+
+- **Interpretasi:** kegagalan H1 di pilot kemungkinan spesifik model 3B (yang paling banyak beralih ke abstain). Pada 1.5B dan 7B, memblokir akses menaikkan laju halusinasi. Lonjakan selective risk (+0,47 sampai +0,56) dan penyalinan dari evidence (74–85%) robust di ketiga ukuran. Ini temuan eksploratif; layak dijadikan hipotesis konfirmatori di studi berikutnya (model non-Qwen).
+
+### Penutupan sesi (2026-10-06)
+- Semua run terjadwal selesai; tidak ada proses GPU yang berjalan.
+- Dokumen dibuat:
+  - Briefing riset (Claude Doc): https://claude.ai/code/artifact/758ec20e-c435-468f-b552-7d1d0bf5e46f — termasuk perjalanan riset, arsitektur EAG, hasil, dan calon supervisor.
+  - Memo 2 halaman untuk calon supervisor (English): https://claude.ai/code/artifact/a12100c0-0f61-4d6c-8ebf-0349805f2c70
+  - Gambar: `09_reports/figures/`.
+- Langkah berikutnya (butuh keputusan user, sebaiknya setelah masukan supervisor):
+  1. pre-registrasi ulang advice vs authority;
+  2. model non-Qwen;
+  3. baseline CAA / RINSE;
+  4. audit label oleh manusia;
+  5. konfirmasi temuan lintas ukuran (H1 muncul di 1.5B/7B, tidak di 3B).
