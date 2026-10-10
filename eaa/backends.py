@@ -109,6 +109,33 @@ class HFBackend:
         return [scores[i * len(options):(i + 1) * len(options)] for i in range(len(batch))]
 
 
+class OllamaBackend:
+    """Ollama chat API (deterministic: temperature 0, fixed seed, thinking off). No hidden states,
+    so it can only be a generator; sigma must come from a separate reader (e.g. Qwen + EAG head)."""
+
+    def __init__(self, model: str, url: str = "http://localhost:11434", workers: int = 4):
+        self.name, self.url, self.workers = f"ollama:{model}", url, workers
+        self.model = model
+
+    def prompt_tokens(self, messages: Messages) -> int:
+        return sum(len(m["content"]) for m in messages) // 4    # rough, only used for sorting
+
+    def _one(self, msgs: Messages, max_new_tokens: int) -> str:
+        import urllib.request
+
+        body = json.dumps({"model": self.model, "messages": msgs, "stream": False, "think": False,
+                           "options": {"temperature": 0, "seed": 0, "num_predict": max_new_tokens}}).encode()
+        req = urllib.request.Request(f"{self.url}/api/chat", body, {"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=600) as r:
+            return json.load(r)["message"]["content"].strip()
+
+    def generate(self, batch: list[Messages], max_new_tokens: int) -> list[str]:
+        from concurrent.futures import ThreadPoolExecutor
+
+        with ThreadPoolExecutor(self.workers) as ex:
+            return list(ex.map(lambda m: self._one(m, max_new_tokens), batch))
+
+
 def make_backend(cfg: dict):
     if cfg["backend"] == "mock":
         return MockBackend()

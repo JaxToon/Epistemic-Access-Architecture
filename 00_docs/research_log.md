@@ -194,3 +194,66 @@ Temuan review dan perbaikannya:
   3. baseline CAA / RINSE;
   4. audit label oleh manusia;
   5. konfirmasi temuan lintas ukuran (H1 muncul di 1.5B/7B, tidak di 3B).
+
+## 2026-10-11
+
+### Gagasan "aturan berhenti" (optimal stopping) + cek literatur
+- Usulan user: memakai matematika supaya model tahu kapan berhenti, terutama ketika informasi sudah cukup terelaborasi. Formulasi: lanjut ⇔ σ·g − λ(1−σ) − μ > 0, dengan g = sisa evidence yang belum diekspresikan.
+- Literature-scout (`00_docs/07_prior_art_stopping_rule.md`):
+  - **tidak baru:** filter klaim terkalibrasi (Mohri & Hashimoto 2024); aturan Bayes ambang biaya (CASS, arXiv 2605.01749, yang identik dengan rumus kita bila g = 1, μ = 0); trade-off verbosity–faktualitas (Spataru NAACL 2024); stopping di decoding berbasis keyakinan internal (Sequential-EDFL).
+  - **mungkin baru:** g online dari evidence, satu aturan untuk abstain dan stop, penegakan otoritas vs saran.
+  - **Ablasi g = 1 wajib.** Dataset kandidat: ASQA, QAMPARI (ALCE).
+  - Belum dijalankan; dicatat sebagai studi lanjutan.
+
+### Dokumen untuk dosen UI (Claude Doc, Bahasa Indonesia formal)
+- https://claude.ai/code/artifact/b20df51d-b05c-453b-83f9-df4d40dfb14a — ringkasan, latar belakang, metode, hasil, hal yang tidak terdukung, gagasan aturan berhenti (dengan posisi literatur yang jujur), pertanyaan diskusi, lampiran istilah.
+
+### Studi 3 / 3b — advice vs authority, konfirmatori (pre-reg `08_preregistration_study3_authority.md`)
+- Didaftarkan sebelum σ dihitung. Kontras dirancang ulang supaya selalu terdefinisi:
+  - **P1:** TOST advice ≈ placebo, ±0,02;
+  - **P2:** authority − off ≤ −0,05;
+  - **P3:** U = benar − 2·halusinasi, authority > advice.
+- User memasang `gemma4:e4b` di Ollama. Dipakai sebagai **generator non-Qwen** (Studi 3b), dengan σ dari reader Qwen + EAG (arsitektur reader ≠ generator). Determinisme dicek (3/3 identik). Ditambahkan `OllamaBackend` (tidak ada hidden state, jadi hanya bisa sebagai generator).
+- σ pada 400 item baru (tanpa pelatihan ulang): mean full 0,787 · drop_ans 0,180 · drop_all 0,027.
+- Antrean `scripts/chain5_study3.sh` berjalan: Qwen advice/placebo → Gemma off/advice/placebo → judge.
+
+### Studi 3 / 3b — HASIL KONFIRMATORI (2026-10-11 ±02:10)
+- 22 kasus ambigu baru diaudit (13 benar) → `06_evaluation/audit_ambiguous_claude_study3.jsonl`; judge_missing = 0.
+- Bug analisis diperbaiki sebelum hasil dibaca: bootstrap pada subset `full` salah indeks (sekarang mask + nanmean, resampling tetap per item); direktori laporan per generator.
+- Populasi primer: 255 item × 5 paket.
+
+**Qwen2.5-3B (σ dan generator dari model yang sama):**
+- **P1** advice − placebo = −0,008, 90% CI [−0,017; 0,002] dalam ±0,02 → **didukung** (saran inert, replikasi fase 1b).
+- **P2** authority − off = −0,133 [−0,161; −0,109], Holm p 0,001 → **didukung**.
+- **P3** U(λ = 2) authority − advice = +0,365 [0,297; 0,431] → **didukung**.
+- **Biaya:** false refusal @full +0,114 [0,075; 0,153]; batas atas melewati ambang praktis 0,15 (tipis).
+- Saran menaikkan halusinasi vs off +0,073 [0,053; 0,093] (konsisten dengan fase 1b).
+
+**Gemma 4 E4B (generator) + σ dari reader Qwen (reader ≠ generator):**
+- **P1** advice − placebo = +0,009, 90% CI [0,002; 0,017] dalam ±0,02 → **didukung** (ekuivalen; ada sedikit selisih yang terdeteksi).
+- **P2** authority − off = −0,042 [−0,059; −0,027] → **tidak didukung** menurut kriteria (≤ −0,05), walau penurunannya signifikan. Gemma off sudah jarang berhalusinasi (0,086) dan sangat konservatif (abstain 0,80).
+- **P3** U(λ = 2) = +0,035 [0,005; 0,068], Holm p 0,018 → **didukung**.
+- **Biaya:** false refusal +0,098 [0,063; 0,137], aman.
+
+**Interpretasi:**
+- Pola "saran inert, otoritas efektif" kini **konfirmatori** pada item baru untuk Qwen 3B, dan arahnya **tereplikasi lintas keluarga model** (Gemma) dengan σ dari reader model lain.
+- Besaran efek otoritas bergantung pada baseline halusinasi generator.
+- Biaya false refusal pada Qwen berada di batas ambang praktis.
+
+### Jeda menunggu masukan dosen UI (2026-10-11)
+- Keputusan user: eksperimen baru ditunda sampai ada masukan dosen UI.
+- Pertanyaan "langkah berikutnya" ditambahkan ke dokumen (bagian diskusi):
+  1. studi aturan berhenti σ + g (ASQA/QAMPARI, ablasi g = 1);
+  2. menurunkan biaya false refusal gate (τ terkalibrasi / gate bertingkat);
+  3. generalisasi (model/dataset lain, termasuk bahasa Indonesia; baseline; audit manusia);
+  4. arah lain.
+- Tidak ada proses GPU yang berjalan.
+
+### Benchmark + teori + kalibrasi (2026-10-11, lanjutan)
+- Riset literatur (`00_docs/09_benchmark_and_theory.md`): aturan kita dengan g = 1, μ = 0, λ = t/(1−t) **identik** dengan aturan skor ber-penalti Kalai dkk. 2025 ("jawab jika P(benar) > t"). Gate σ < 0,5 berarti t = 0,5. Teori ketidakmungkinan (Xu 2024; Kalai & Vempala 2024) membahas pengetahuan parametrik dan tidak melarang abstensi. Jaminan konformal bersifat marginal dan gugur saat distribution shift.
+- **Kalibrasi σ (Studi 3, Qwen off, primer):**
+  - ECE terhadap kecukupan = **0,048** (terkalibrasi baik);
+  - ECE terhadap kebenaran jawaban = **0,256** (tidak terkalibrasi; pada σ ≈ 0,98 hanya 56% benar).
+  - **Implikasi:** σ = P(cukup) ≠ P(benar). Aturan keputusan optimal butuh P(benar). Kesalahan "salah baca" saat evidence lengkap tidak tertangkap σ. Ini batas utama pendekatan sekarang.
+- Benchmark (pre-reg addendum 08): skor dibatasi ke 447 jawaban substantif primer (ekuivalen untuk semua metrik gate; mempercepat 6,5 jam → ±30 menit). Ditambah baris gate acak pada laju menjawab yang sama.
+- Audit sitasi (peer-reviewed vs preprint) berjalan, atas permintaan user.
