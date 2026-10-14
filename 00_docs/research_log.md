@@ -257,3 +257,40 @@ Temuan review dan perbaikannya:
   - **Implikasi:** σ = P(cukup) ≠ P(benar). Aturan keputusan optimal butuh P(benar). Kesalahan "salah baca" saat evidence lengkap tidak tertangkap σ. Ini batas utama pendekatan sekarang.
 - Benchmark (pre-reg addendum 08): skor dibatasi ke 447 jawaban substantif primer (ekuivalen untuk semua metrik gate; mempercepat 6,5 jam → ±30 menit). Ditambah baris gate acak pada laju menjawab yang sama.
 - Audit sitasi (peer-reviewed vs preprint) berjalan, atas permintaan user.
+
+### Benchmark gate vs metode standar — HASIL (pre-reg addendum 08; sekunder)
+- Qwen2.5-3B, Studi 3 primer; 447 jawaban substantif dari 1.275 baris.
+- **AURC** (lebih kecil lebih baik), selisih terhadap eag_sigma [95% CI]:
+
+| gate | AURC | selisih vs eag_sigma [95% CI] |
+|---|---|---|
+| eag_sigma | 0,499 | — |
+| p_true | 0,525 | +0,026 [−0,040; 0,091] |
+| seq_conf | 0,521 | +0,022 [−0,032; 0,080] |
+| reader_p_suff | 0,526 | +0,027 [−0,021; 0,079] |
+| self_consistency | 0,594 | +0,095 [0,046; 0,144] |
+| oracle_full | 0,434 | — |
+| acak | 0,644 | — |
+
+- **AUROC** benar-vs-halusinasi: eag 0,715 · p_true 0,694 · reader 0,673 · seq 0,662 · self-consistency 0,548.
+- **Gate pada laju menjawab sama (0,180):**
+  - halusinasi: eag 0,093 · p_true 0,091 · reader 0,095 · seq 0,097 · **acak 0,116** · off 0,226;
+  - false refusal @full: eag **0,345** vs p_true 0,510, reader 0,455, seq 0,506 · acak 0,605.
+- **Interpretasi:**
+  1. Sebagian besar penurunan halusinasi berasal dari abstensi. Pada cakupan yang sama, gate terbaik hanya ±2,4 poin di bawah gate acak.
+  2. Sinyal ketidakpastian standar setara dengan σ dalam menekan halusinasi (AURC tidak berbeda signifikan).
+  3. Keunggulan σ yang jelas adalah false refusal pada evidence lengkap yang jauh lebih rendah (σ menargetkan kecukupan).
+  4. Klaim "−13,3 poin" harus selalu disertai cakupan dan pembanding gate acak (sesuai peringatan overclaim di 09).
+
+### Versi offline dokumen untuk dosen UI
+- `09_reports/Ringkasan_Penelitian_untuk_Dosen_UI.md`: salinan Markdown dari Claude Doc (rev 25), termasuk bagian teori, benchmark, asal ide split-brain (Sperry/Gazzaniga, diverifikasi dari *Brain* 2017 dan *J. Neurol.* 2022), label status rujukan, dan konteks laju menjawab pada angka −13,3 poin.
+
+### 2026-10-14 — Umpan balik Pak Alfan (dosen UI) + analisis eksploratif "full tapi salah"
+- Dokumen untuk dosen ditambah bagian operasional pelatihan head σ (data kontrafaktual, fitur, arsitektur, loss, inference). Jumlah parameter: modul 3.365.121; pada varian eag proyeksi pertanyaan tidak terpakai → ±2,84 juta yang benar-benar dilatih.
+- Umpan balik dosen: (1) σ mirip selective prediction → arahkan ke "tahu tapi tidak mengungkap" vs "tidak tahu", plus activation steering; (2) uji saran vs otoritas pada subset `full` yang tetap salah; (3) verifikasi kebaruan secara mandiri (waspada ide dari LLM); (4) multibahasa; (6) tema ACL 2027 "Homogenization and Knowledge Collapse" (deadline ARR 4 Jan 2027).
+- **Analisis eksploratif (post-hoc, tidak pre-registered)** pada Studi 3, `full`, populasi primer (255 soal):
+  - Qwen 3B `off`: 125 benar, 71 halusinasi, 59 abstain. Median σ: benar 0,962; **halusinasi 0,965** (82% σ ≥ 0,5); abstain 0,629. Jadi σ tidak membedakan jawaban salah dari benar ketika evidence lengkap.
+  - Pemulihan halusinasi → benar: saran 1/71, plasebo 0/71, otoritas 0/71 (veto, tidak mungkin memulihkan), saran+otoritas 0/71. Gemma: 0/36 di semua lengan.
+  - Tidak-benar → benar (termasuk abstain): saran 17/130 vs plasebo 15/130 (Qwen); Gemma 9/131 vs 3/131. Hampir semuanya abstain → menjawab, bukan koreksi jawaban salah.
+- Implikasi desain: "otoritas" versi sekarang hanya veto. RQ pemulihan butuh intervensi pada proses generasi (mis. steering yang dipicu σ). Klaim "tahu tapi tidak mengungkap" butuh bukti bahwa *jawaban* (bukan sekadar kecukupan) ter-decode dari hidden pada 71 kasus tsb. (probe jawaban / logit lens) sebelum steering.
+- Rencana lanjutan ditulis di `00_docs/11_rencana_lanjutan_pasca_masukan_dosen.md`: Fase 1 diagnosis "tahu tapi tidak mengungkap" → Fase 2 popularitas entitas → Fase 3 cek literatur steering (YOPO, SHIFT, Kawada & Kellis sudah dekat) → Fase 4 Studi 4 intervensi hidden state (tangga otoritas: saran, veto, intervensi) → Fase 5 multibahasa.
