@@ -64,3 +64,38 @@ sigma: benar vs halusinasi, Mann–Whitney p = 0.7314
 35      1.0     11.0     33.0
 36      1.0      7.0     26.0
 ```
+
+## Popularitas entitas (pageviews 2025)
+
+judul: 795, tidak ter-resolve: 10, views = 0: 10
+
+Regresi logistik (kemiringan per 1 SD popularitas, IK 95% bootstrap item):
+```
+       x        outcome  slope_per_SD     lo    hi  ci_excl_0
+pop_mean        correct        -0.185 -0.445 0.061          0
+pop_mean  hallucination         0.411  0.135 0.720          1
+pop_mean        abstain        -0.177 -0.457 0.111          0
+pop_mean    gate_refuse        -0.102 -0.417 0.217          0
+pop_mean hi_sigma_wrong         0.260  0.011 0.544          1
+ pop_min        correct        -0.206 -0.498 0.037          0
+ pop_min  hallucination         0.431  0.122 0.798          1
+ pop_min        abstain        -0.145 -0.418 0.125          0
+ pop_min    gate_refuse        -0.020 -0.317 0.283          0
+ pop_min hi_sigma_wrong         0.233 -0.023 0.541          0
+```
+
+Per kuartil popularitas (rata-rata log10 views kedua judul emas):
+```
+               n  correct  hallucination  abstain  gate_refuse  hi_sigma_wrong  sigma
+Q                                                                                    
+Q1 (jarang)   64    0.594          0.156    0.250        0.250           0.250  0.752
+Q2            64    0.484          0.281    0.234        0.188           0.375  0.758
+Q3            63    0.460          0.270    0.270        0.190           0.429  0.754
+Q4 (populer)  64    0.422          0.406    0.172        0.188           0.422  0.789
+```
+
+Spearman popularitas vs σ: ρ = 0.053 (p = 0.395)
+
+Sekunder: Spearman popularitas vs halusinasi @drop_ans: ρ = 0.090 (p = 0.15)
+
+Sekunder: K1_longgar vs popularitas (logistik, per SD): 0.050 [-0.399; 0.594]

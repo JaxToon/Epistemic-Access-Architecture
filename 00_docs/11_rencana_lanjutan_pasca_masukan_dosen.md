@@ -90,3 +90,15 @@ Target ARR ACL 2027 (4 Jan 2027) tidak dijadikan patokan, sesuai arahan dosen. T
 - **Efek *steering* bergantung model** (Kawada & Kellis). Butuh minimal dua keluarga model sebelum menarik kesimpulan umum.
 - **Artefak terjemahan** pada Studi 5.
 - **Ide kerangka ini disusun dengan bantuan LLM.** Setiap klaim kebaruan harus diverifikasi sendiri dari paper sumber.
+
+## 6. Status per 17 Oktober 2026
+
+| Fase | Status | Hasil utama | Dokumen |
+| --- | --- | --- | --- |
+| 1 Diagnosis | Selesai (eksploratif) | Pengetahuan hampir seluruhnya dari konteks; 48% halusinasi "nyaris" (emas 5 besar); 61% memilih entitas lain dari paragraf emas. Kriteria K1 primer cacat (dicatat) | 12, `07_analysis/diagnosis/summary.md` |
+| 1b Probe | Selesai (eksploratif) | **"Tahu tapi tidak mengungkap" didukung:** *probe* mengurutkan emas di atas jawaban salah pada 69% kasus vs *decoy* 10%; K_internal − K_eksternal +0,24 | 14, `probe_summary.md` |
+| 2 Popularitas | Selesai (eksploratif) | *Gate* tidak menolak entitas jarang lebih sering. Halusinasi justru naik pada entitas populer (16% → 41%) | 12, `summary.md` |
+| 3 Literatur | Selesai tahap 1 | YOPO dan Lu dkk. dekat; ruang yang tersisa: tangga otoritas dengan nilai sinyal identik + plasebo, kegagalan alami multi-hop, bahasa | 13 |
+| 4 Studi 4 | **Draf** pre-registrasi | Menunggu tinjauan dan diskusi dengan pembimbing | 17 |
+| 5a Lintas bahasa | Selesai (pilot) | *Evidence* non-Inggris: benar −19 poin; σ terurut tetapi kalibrasinya runtuh, sehingga *gate* menolak 68% *evidence* lengkap (EN 23%) | 15, 16, `07_analysis/xling/summary.md` |
+| 5b Monolingual ID | Belum | Perlu terjemahan sendiri | 15 |

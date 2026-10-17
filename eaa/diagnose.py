@@ -383,7 +383,8 @@ def analyze():
         dd = prim.set_index("item_id").join(dl.rename("halluc_dropans"))
         rho2, p2 = spearmanr(dd.pop_mean, dd.halluc_dropans)
         Hp = H.merge(prim[["item_id", "pop_mean"]], on="item_id")
-        k1 = _logit_boot(Hp.pop_mean.to_numpy(), Hp.K1.to_numpy().astype(float), rng)
+        # K1 primary is degenerate (greedy; see deviation in plan 12) -> K1_loose
+        k1 = _logit_boot(Hp.pop_mean.to_numpy(), Hp.K1_loose.to_numpy().astype(float), rng)
         unresolved = int(pv.resolved.isna().sum())
         md += ["## Popularitas entitas (pageviews 2025)\n",
                f"judul: {len(pv)}, tidak ter-resolve: {unresolved}, views = 0: {int((pv.views_2025 == 0).sum())}\n",
@@ -393,7 +394,7 @@ def analyze():
                qt.round(3).to_string() + "\n```\n",
                f"Spearman popularitas vs σ: ρ = {rho:.3f} (p = {pr:.3g})\n",
                f"Sekunder: Spearman popularitas vs halusinasi @drop_ans: ρ = {rho2:.3f} (p = {p2:.3g})\n",
-               f"Sekunder: K1 vs popularitas (logistik, per SD): {k1[0]:.3f} [{k1[1]:.3f}; {k1[2]:.3f}]\n"]
+               f"Sekunder: K1_longgar vs popularitas (logistik, per SD): {k1[0]:.3f} [{k1[1]:.3f}; {k1[2]:.3f}]\n"]
         reg.to_csv(OUT / "popularity_regression.csv", index=False)
         qt.to_csv(OUT / "popularity_quartiles.csv")
 

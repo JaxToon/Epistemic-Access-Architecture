@@ -312,3 +312,35 @@ Temuan review dan perbaikannya:
   - SHIFT (2606.27786) berganti judul menjadi SPARK di v2 (13 Okt 2026); entri prior art diberi catatan.
 - **Keputusan:** Studi 4 dibingkai sebagai perbandingan tiga bentuk otoritas (saran, veto, intervensi) dengan nilai sinyal identik dan plasebo, pada kegagalan alami multi-hop. Populasi target *steering*: kasus "nyaris" (R_final ≤ 5). Sebelum itu, jalankan Fase 1b: *probe* internal vs eksternal ala Gekhman dkk. untuk menguji "tahu tapi tidak mengungkap" secara benar.
 - Fase 2 (popularitas): *pageviews* masih diambil (REST API Wikimedia membatasi laju klien tanpa kontak; ±6–12 judul/menit, 795 judul). Analisis menyusul.
+
+### 2026-10-17 — Fase 2 (popularitas entitas), eksploratif
+- *Pageviews* 2025 (Wikipedia en, user) untuk 795 judul emas; 10 tidak ter-*resolve* (views = 0). Hasil: `07_analysis/diagnosis/summary.md`, `popularity_*.csv`.
+- **Populasi utama, `off`, `full`** (kemiringan logistik per 1 SD popularitas rata-rata kedua judul emas, IK 95% *bootstrap* item):
+  - **halusinasi naik dengan popularitas: +0,41 [0,14; 0,72].** Kuartil: Q1 (jarang) 15,6% → Q2 28,1% → Q3 27,0% → Q4 (populer) 40,6%. Hasil sama dengan popularitas minimum (+0,43 [0,12; 0,80]);
+  - benar: −0,19 [−0,45; 0,06] (Q1 59% → Q4 42%); abstain: −0,18 [−0,46; 0,11];
+  - **penolakan oleh *gate* (σ < 0,5) tidak bergantung pada popularitas:** −0,10 [−0,42; 0,22]. σ vs popularitas: ρ = 0,05;
+  - "σ ≥ 0,5 tetapi salah": +0,26 [0,01; 0,54].
+- **Cek *post-hoc*** (bukan bagian rencana):
+  - efek bertahan pada soal *bridge* saja (16% → 40%), jadi bukan karena jenis soal;
+  - *closed-book* benar rata di semua kuartil (2–3%), jadi bukan karena model sudah hafal jawabannya;
+  - K1 longgar tidak bergantung pada popularitas.
+- **Tafsiran (hati-hati, eksploratif):** dugaan awal "pengaman menolak pengetahuan yang jarang" (sudut *knowledge collapse*) **tidak didukung**, karena *gate* tidak menolak entitas jarang lebih sering. Polanya justru terbalik: dengan *evidence* lengkap, model **lebih sering salah pada entitas populer**. Ini konsisten dengan Mallen dkk. (ACL 2023): konteks bisa kalah oleh keakraban parametrik pada entitas populer. Kandidat mekanisme: keakraban → lebih mudah menjawab dengan entitas yang "terasa benar" walaupun jawabannya belum diketahui. Perlu uji konfirmatori (item baru, pre-registrasi).
+
+### 2026-10-17 — Fase 1b (probe internal vs eksternal), eksploratif
+- Rencana: `00_docs/14_analysis_plan_phase1b_probe.md` (ditulis sebelum ekstraksi; kontrol *decoy* ditambahkan setelah uji coba kode dan sebelum hasil final). Kode: `eaa/probe_knowledge.py`. Hasil: `07_analysis/diagnosis/probe_summary.md`.
+- Kandidat: 299 *greedy* + 255 sampel unik (sampel temperatur 1 sangat seragam, ±2,4 kandidat per item) + 396 emas + 396 *decoy*. 54 kandidat ambigu baru dinilai *judge* Qwen 7B, sehingga tidak ada yang dibuang.
+- **Uji 1 (Gekhman, 41 item yang punya kandidat benar dan salah):** K_internal (L27) = 0,899 vs K_eksternal (log-prob) = 0,654: **+0,244 [0,106; 0,389]**. Fitur permukaan ≈ eksternal (−0,007).
+- **Uji 2 (71 kasus halusinasi):** *probe* L27 mengurutkan **emas di atas jawaban *greedy* yang salah pada 49/71 = 69% [57%; 79%]**. Eksternal 0/71, permukaan 0/71.
+- **Kontrol *decoy*** (emas dari soal lain): hanya 7/71 = 10% [5%; 19%] mengalahkan *greedy*. **Emas − *decoy* = +0,59 [0,47; 0,72].** Jadi *probe* tidak sekadar mengenali gaya string emas.
+- **Kesimpulan (sesuai kriteria pra-tetap):** "tahu tapi tidak mengungkap" **didukung** pada populasi ini. Untuk sebagian besar halusinasi dengan *evidence* lengkap, *hidden state* lebih menyukai jawaban yang benar, tetapi keluaran model tidak. Lapisan 27 terbaik; lapisan 18 lebih lemah (52%).
+- Silang dengan Fase 1: kasus *probe*-K1 tersebar di R_final ≤ 5 (25) dan > 5 (24), jadi peringkat token pertama bukan ukuran pengganti yang baik. Per jenis kesalahan, "entitas lain dari paragraf emas" 31/43 dan "pengecoh" 7/9.
+- Keterbatasan: *decoy* adalah pesaing yang lemah (tidak relevan dengan soal). Pesaing yang lebih ketat adalah entitas lain dari paket. *Probe* linear dilatih pada ±550 kandidat; satu model; eksploratif.
+
+### 2026-10-17 — Fase 5a (evidence lintas bahasa, XHotpotQA), pilot eksploratif
+- Rencana: `00_docs/16_analysis_plan_phase5a_crosslingual.md`. Kode: `eaa/xling.py`. Hasil: `07_analysis/xling/summary.md`. Unit tak terpetakan 0,05 per paket; keluaran XL beraksara non-Latin 3%; judge_missing 0.
+- **XL − EN\*** (255 item utama, pertanyaan bahasa Inggris, kedua lengan diminta menjawab dalam bahasa Inggris):
+  - benar@full 0,486 → 0,298: **−0,188 [−0,247; −0,129]**;
+  - halusinasi@full **+0,102 [0,043; 0,165]**; abstain@full +0,086 [0,031; 0,141]; halusinasi@drop_ans tidak berubah (+0,004).
+  - σ dari *head* yang dilatih dalam bahasa Inggris: akurasi berpasangan tetap tinggi (0,984 → 0,941), tetapi **σ@full turun 0,745 → 0,339**, sehingga **penolakan oleh *gate* pada *evidence* lengkap naik 23% → 68% (+0,455 [0,392; 0,514])**.
+  - Deskriptif: paragraf jawaban beraksara non-Latin −25,6 poin benar, Latin −11,5, bahasa Inggris (kontrol, n = 14) −7,1.
+- **Tafsiran:** (1) *evidence* yang sama dalam bahasa lain lebih jarang dipakai dengan benar. (2) Kecukupan masih terbaca secara relatif (urutan σ terjaga), tetapi kalibrasinya runtuh, sehingga **pengaman yang dikalibrasi dalam bahasa Inggris menolak sebagian besar *evidence* non-Inggris yang sebenarnya lengkap.** Ini kaitan konkret ke tema *knowledge collapse* ACL 2027, tetapi lewat bahasa, bukan lewat popularitas. Keterbatasan: paket campuran bahasa, terjemahan mesin, satu model, pilot.

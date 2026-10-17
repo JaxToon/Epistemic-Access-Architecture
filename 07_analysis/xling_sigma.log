@@ -1,0 +1,6 @@
+arm  level   
+EN   drop_ans    0.160
+     full        0.768
+XL   drop_ans    0.069
+     full        0.379
+Name: sigma, dtype: float32
