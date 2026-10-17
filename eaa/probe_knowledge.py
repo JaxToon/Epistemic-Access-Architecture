@@ -29,6 +29,32 @@ MODEL = "03_models/Qwen2.5-3B-Instruct"
 OUT = Path("07_analysis/diagnosis")
 LAYERS = [18, 27, 33, 36]
 PRIMARY_LAYER = 27
+FOUR_BIT = False
+TAGS = {  # replication (plan 18 §B): layers at 0.5 / 0.75 (primary) / 0.92 / 1.0 of depth
+    "qwen2.5-3b": ("03_models/Qwen2.5-3B-Instruct", [18, 27, 33, 36], 27, False, "07_analysis/diagnosis"),
+    "qwen2.5-1.5b": ("03_models/Qwen2.5-1.5B-Instruct", [14, 21, 26, 28], 21, False, "07_analysis/diagnosis_qwen2.5-1.5b"),
+    "qwen2.5-7b": ("03_models/Qwen2.5-7B-Instruct", [14, 21, 26, 28], 21, True, "07_analysis/diagnosis_qwen2.5-7b"),
+}
+
+
+def _configure(tag: str):
+    global MODEL, LAYERS, PRIMARY_LAYER, FOUR_BIT, OUT, S2_DIR
+    MODEL, LAYERS, PRIMARY_LAYER, FOUR_BIT, out = TAGS[tag]
+    OUT, S2_DIR = Path(out), Path(f"05_outputs/study2_{tag}")
+
+
+def _load():
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    kw = {"device_map": "cuda"}
+    if FOUR_BIT:
+        from transformers import BitsAndBytesConfig
+        kw["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16,
+                                                       bnb_4bit_quant_type="nf4")
+    else:
+        kw["dtype"] = torch.float16
+    return AutoTokenizer.from_pretrained(MODEL), AutoModelForCausalLM.from_pretrained(MODEL, **kw).eval()
 N_SAMPLES = 10
 SEED = 20261017
 B = 2000
@@ -50,8 +76,7 @@ def extract():
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
     torch.manual_seed(SEED)
-    tok = AutoTokenizer.from_pretrained(MODEL)
-    model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.float16, device_map="cuda").eval()
+    tok, model = _load()
     body, head = model.model, model.lm_head
     items = {it["id"]: it for it in load_items(ITEMS)}
     off = {r["item_id"]: r["output"] for r in map(json.loads, open(S2_DIR / "generations.jsonl", encoding="utf-8"))
@@ -108,8 +133,7 @@ def decoy():
     from tqdm import tqdm
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
-    tok = AutoTokenizer.from_pretrained(MODEL)
-    model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.float16, device_map="cuda").eval()
+    tok, model = _load()
     body, head = model.model, model.lm_head
     items = {it["id"]: it for it in load_items(ITEMS)}
     pk = [r for r in map(json.loads, open(PACKETS, encoding="utf-8")) if r["level"] == "full"]
@@ -138,6 +162,57 @@ def decoy():
                      "ntok": len(ci), "in_evidence": _in_evidence(user, c)})
     torch.save({"meta": meta, "H": torch.stack(H), "layers": LAYERS}, OUT / "probe_decoys.pt")
     print(f"{len(meta)} decoys -> {OUT / 'probe_decoys.pt'}")
+
+
+def hard_decoy():
+    """Plan 18 §A: titles of the packet's own units (topical, in-evidence entities) as wrong candidates."""
+    import re
+
+    import torch
+    from tqdm import tqdm
+
+    tok, model = _load()
+    body, head = model.model, model.lm_head
+    items = {it["id"]: it for it in load_items(ITEMS)}
+    off = {r["item_id"]: r["output"] for r in map(json.loads, open(S2_DIR / "generations.jsonl", encoding="utf-8"))
+           if r["prompt"] == "extractive" and r["level"] == "full"}
+    pk = [r for r in map(json.loads, open(PACKETS, encoding="utf-8")) if r["level"] == "full"]
+    meta, H = [], []
+    for r in tqdm(pk, desc="hard decoys"):
+        iid, user = r["item_id"], r["prompt"]
+        g, gr = normalize_answer(items[iid]["answer"]), normalize_answer(off[iid])
+        titles = list(dict.fromkeys(re.findall(r"^\[e\d+\] \((.*?)\) ", user, flags=re.M)))
+        cands = []
+        for t in titles:
+            n = normalize_answer(t)
+            if not n or n == gr or f" {g} " in f" {n} " or f" {n} " in f" {g} ":
+                continue
+            cands.append(t)
+        if not cands:
+            continue
+        text = tok.apply_chat_template(_msgs(user), tokenize=False, add_generation_prompt=True)
+        p_ids = tok(text, add_special_tokens=False)["input_ids"]
+        for i in range(0, len(cands), 4):
+            chunk = cands[i:i + 4]
+            c_ids = [tok(c, add_special_tokens=False)["input_ids"] for c in chunk]
+            L = max(len(p_ids) + len(c) for c in c_ids)
+            ids = torch.full((len(chunk), L), tok.pad_token_id or 0, dtype=torch.long)
+            att = torch.zeros((len(chunk), L), dtype=torch.long)
+            for b, c in enumerate(c_ids):
+                ids[b, : len(p_ids) + len(c)] = torch.tensor(p_ids + c)
+                att[b, : len(p_ids) + len(c)] = 1
+            with torch.inference_mode():
+                hs = body(input_ids=ids.cuda(), attention_mask=att.cuda(), output_hidden_states=True).hidden_states
+                for b, (c, ci) in enumerate(zip(chunk, c_ids)):
+                    t0, last = len(p_ids) - 1, len(p_ids) + len(ci) - 1
+                    lp = torch.log_softmax(head(hs[-1][b, t0:last]).float(), -1)
+                    tl = lp[torch.arange(len(ci)), torch.tensor(ci, device="cuda")]
+                    H.append(torch.stack([hs[l][b, last] for l in LAYERS]).half().cpu())
+                    meta.append({"item_id": iid, "cand": c, "kind": "hard", "lp_mean": float(tl.mean()),
+                                 "ntok": len(ci), "in_evidence": _in_evidence(user, c)})
+            del hs
+    torch.save({"meta": meta, "H": torch.stack(H), "layers": LAYERS}, OUT / "probe_hard_decoys.pt")
+    print(f"{len(meta)} hard decoys -> {OUT / 'probe_hard_decoys.pt'}")
 
 
 def _wilson(k, n, z=1.96):
@@ -184,21 +259,26 @@ def analyze():
     d = torch.load(OUT / "probe_candidates.pt", weights_only=False)
     M = pd.DataFrame(d["meta"])
     Hs = d["H"].float().numpy()
-    if (OUT / "probe_decoys.pt").exists():
-        dd = torch.load(OUT / "probe_decoys.pt", weights_only=False)
-        M = pd.concat([M, pd.DataFrame(dd["meta"])], ignore_index=True)
-        Hs = np.concatenate([Hs, dd["H"].float().numpy()])
-    lab = [{"correct": 1, "judge_missing": 0} if k == "gold" else {"correct": 0, "judge_missing": 0} if k == "decoy"
+    for fn in ("probe_decoys.pt", "probe_hard_decoys.pt"):
+        if (OUT / fn).exists():
+            dd = torch.load(OUT / fn, weights_only=False)
+            M = pd.concat([M, pd.DataFrame(dd["meta"])], ignore_index=True)
+            Hs = np.concatenate([Hs, dd["H"].float().numpy()])
+    lab = [{"correct": 1, "judge_missing": 0} if k == "gold" else {"correct": 0, "judge_missing": 0} if k in ("decoy", "hard")
            else E.label(c, items[i]["answer"], i) for i, c, k in zip(M.item_id, M.cand, M.kind)]
     M["y"] = [l["correct"] for l in lab]
     M["judge_missing"] = [l["judge_missing"] for l in lab]
     keep = (M.judge_missing == 0).to_numpy()
     M, Hs = M[keep].reset_index(drop=True), Hs[keep]
-    ev = pd.read_csv(EVAL)
-    off = ev[(ev.arm == "off") & (ev.level == "full")].set_index("item_id")
-    M["primary"] = M.item_id.map(off.primary).fillna(0).astype(int)
-    M["group"] = M.item_id.map(lambda i: "correct" if off.loc[i, "correct"] == 1 else
-                               "halluc" if off.loc[i, "hallucination"] == 1 else "abstain")
+    from .conditions import question_class
+    s2pk = {r["item_id"]: r for r in map(json.loads, open(S2_DIR / "packets.jsonl", encoding="utf-8"))
+            if r["level"] == "full"}
+    offo = {r["item_id"]: r["output"] for r in map(json.loads, open(S2_DIR / "generations.jsonl", encoding="utf-8"))
+            if r["prompt"] == "extractive" and r["level"] == "full"}
+    offl = {i: E.label(str(o), items[i]["answer"], i) for i, o in offo.items()}
+    M["primary"] = M.item_id.map(lambda i: int(question_class(items[i]) == "open" and s2pk[i]["answer_para_defined"]))
+    M["group"] = M.item_id.map(lambda i: "correct" if offl[i]["correct"] == 1 else
+                               "halluc" if offl[i]["hallucination"] == 1 else "abstain")
     gen = M.kind.isin(["greedy", "sample"]).to_numpy()     # train only on model-generated candidates
     y, groups = M.y.to_numpy(), M.item_id.to_numpy()
 
@@ -257,6 +337,23 @@ def analyze():
         reps = [dif[rng.integers(0, len(dif), len(dif))].mean() for _ in range(B)]
         lo, hi = np.percentile(reps, [2.5, 97.5])
         t2.append(f"emas − decoy (proporsi menang atas greedy, {c}): {dif.mean():+.3f} [95%: {lo:+.3f}; {hi:+.3f}], n={len(dif)}")
+    # hard decoys (plan 18 §A): gold top-1 among {gold, greedy, packet titles}
+    if (M.kind == "hard").any():
+        for c in (f"int_L{PRIMARY_LAYER}", "external"):
+            top, chance, beat = [], [], []
+            for i, g in Hh.groupby("item_id"):
+                gd, gr, hd = g[g.kind == "gold"], g[g.kind == "greedy"], g[g.kind == "hard"]
+                if not (len(gd) and len(gr) and len(hd)):
+                    continue
+                others = np.r_[gr[c].to_numpy(), hd[c].to_numpy()]
+                top.append(float(gd[c].iloc[0] > others.max()))
+                chance.append(1 / (1 + len(others)))
+                beat.append(float(hd[c].max() > gr[c].iloc[0]))
+            k, n = int(sum(top)), len(top)
+            lo, hi = _wilson(k, n)
+            t2.append(f"DECOY KETAT [{c}]: emas peringkat-1 di antara emas+greedy+judul paket: {k}/{n} = {k / n:.3f} "
+                      f"[{lo:.3f}; {hi:.3f}] vs peluang acak {np.mean(chance):.3f}; "
+                      f"judul paket terbaik > greedy: {np.mean(beat):.3f}")
     ref = []
     Cc = M[(M.primary == 1) & (M.group == "correct") & gen]
     for i, g in Cc.groupby("item_id"):
@@ -268,7 +365,10 @@ def analyze():
               ", ".join(f"{c} {R[c].mean():.3f}" for c in scorers))
 
     # ---- test 3: cross with Phase 1 K1_loose
-    hc = pd.read_csv(OUT / "halluc_cases.csv")[["item_id", "K1_loose", "etype"]]
+    if not (OUT / "halluc_cases.csv").exists():      # Phase 1 diagnosis exists for 3B only
+        hc = pd.DataFrame({"item_id": T2.item_id, "K1_loose": -1, "etype": "n/a"})
+    else:
+        hc = pd.read_csv(OUT / "halluc_cases.csv")[["item_id", "K1_loose", "etype"]]
     T3 = T2.merge(hc, on="item_id")
     ct = pd.crosstab(T3[f"int_L{PRIMARY_LAYER}"].map({1.0: "probe: emas>greedy", 0.0: "probe: greedy>=emas"}),
                      T3.K1_loose.map({1: "R_final<=5", 0: "R_final>5"}), margins=True)
@@ -290,9 +390,11 @@ def analyze():
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["extract", "decoy", "analyze"])
+    ap.add_argument("mode", choices=["extract", "decoy", "hard", "analyze"])
+    ap.add_argument("--model", default="qwen2.5-3b", choices=list(TAGS))
     a = ap.parse_args()
-    {"extract": extract, "decoy": decoy, "analyze": analyze}[a.mode]()
+    _configure(a.model)
+    {"extract": extract, "decoy": decoy, "hard": hard_decoy, "analyze": analyze}[a.mode]()
 
 
 if __name__ == "__main__":

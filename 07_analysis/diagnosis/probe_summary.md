@@ -4,12 +4,13 @@ Rencana: `00_docs/14_analysis_plan_phase1b_probe.md`. Qwen2.5-3B, `full`. Probe 
 
 Kandidat (setelah membuang ambigu yang belum dinilai: 0):
 ```
-          n  benar
-kind              
-decoy   396  0.000
-gold    396  1.000
-greedy  299  0.712
-sample  255  0.345
+           n  benar
+kind               
+decoy    396  0.000
+gold     396  1.000
+greedy   299  0.712
+hard    1913  0.000
+sample   255  0.345
 ```
 
 ## Uji 1 — K (Gekhman), populasi utama
@@ -41,6 +42,8 @@ KONTROL decoy: skor[int_L18](emas soal lain) > skor(greedy salah): 6/71 = 0.085 
 KONTROL decoy: skor[int_L33](emas soal lain) > skor(greedy salah): 12/71 = 0.169 [0.099; 0.273]
 KONTROL decoy: skor[int_L36](emas soal lain) > skor(greedy salah): 11/71 = 0.155 [0.089; 0.257]
 emas − decoy (proporsi menang atas greedy, int_L27): +0.592 [95%: +0.465; +0.718], n=71
+DECOY KETAT [int_L27]: emas peringkat-1 di antara emas+greedy+judul paket: 46/71 = 0.648 [0.532; 0.749] vs peluang acak 0.153; judul paket terbaik > greedy: 0.352
+DECOY KETAT [external]: emas peringkat-1 di antara emas+greedy+judul paket: 0/71 = 0.000 [0.000; 0.051] vs peluang acak 0.153; judul paket terbaik > greedy: 0.056
 acuan (kelompok benar, n=26): skor(greedy benar) > skor(sampel salah), rata-rata: int_L27 0.840, external 0.795, surface 0.814, int_L18 0.609, int_L33 0.800, int_L36 0.808
 ```
 
