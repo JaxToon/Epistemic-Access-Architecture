@@ -102,3 +102,9 @@ Target ARR ACL 2027 (4 Jan 2027) tidak dijadikan patokan, sesuai arahan dosen. T
 | 4 Studi 4 | **Draf** pre-registrasi | Menunggu tinjauan dan diskusi dengan pembimbing | 17 |
 | 5a Lintas bahasa | Selesai (pilot) | *Evidence* non-Inggris: benar −19 poin; σ terurut tetapi kalibrasinya runtuh, sehingga *gate* menolak 68% *evidence* lengkap (EN 23%) | 15, 16, `07_analysis/xling/summary.md` |
 | 5b Monolingual ID | Belum | Perlu terjemahan sendiri | 15 |
+
+**Pembaruan (17 Okt, sore):**
+- *Decoy* ketat: emas peringkat 1 di antara semua judul paket pada 65% (peluang acak 15%).
+- Replikasi *probe*: didukung pada 7B; sebagian pada 1.5B.
+- Pilot *steering* pada *dev*: L24 α2, halusinasi → benar 8,5%, arah acak 0%.
+- Draf Studi 4 direvisi (§9): H4.1 diganti, ukuran sampel ±1.700 item.

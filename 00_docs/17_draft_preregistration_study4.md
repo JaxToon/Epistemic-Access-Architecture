@@ -58,3 +58,16 @@ Model kedua dari keluarga lain (Gemma via bobot HF, 4-bit). Efek *steering* berg
 2. Ambang τ = 0,5 tetap, atau disesuaikan dengan cakupan.
 3. Apakah lengan multibahasa (*evidence* XL) dimasukkan. Fase 5a menunjukkan kalibrasi σ runtuh lintas bahasa, sehingga pemicu σ ≥ 0,5 jarang aktif di XL. Ini justru bisa menjadi uji tersendiri.
 4. Tinjauan metodologi (*confound*, kebocoran *dev*/uji, kriteria pemilihan α).
+
+## 9. Masukan dari pilot *dev* (17 Okt 2026; rencana 18 §C; `07_analysis/steer_dev/summary.md`)
+
+- **Konfigurasi terpilih dengan kriteria pra-tetap: L24, α = 2** (CAA selisih rata-rata, *cross-fit* 2 lipatan).
+  - Pulih (tidak benar → benar) 10,8%; halusinasi → benar 8,5%; rusak 4,0%; Δbenar +3,5 poin; Δabstain −3,5; Δhalusinasi@`drop_ans` +1,2.
+  - Dengan pemicu σ: hampir sama (pulih 9,2%, rusak 3,2%).
+- **Kontrol arah acak** (norma sama): pulih 0%, rusak 8,8%. Efeknya spesifik pada arah.
+- **Pratinjau H4.4:** pulih pada halusinasi K1 6/49 = 12,2% vs non-K1 0/22. Pada L24 α = 4: 20,4% vs 4,5%. Arahnya sesuai prediksi Lu dkk., tetapi n kecil.
+- **Arah tidak stabil:** kosinus antara arah dua lipatan hanya −0,17 sampai 0,23, dan norma arah 2–9% dari norma *hidden state*. Selisih rata-rata benar vs salah lintas item sebagian besar menangkap perbedaan topik. Pertimbangkan arah dari kontras **di dalam item** atau arah *probe*.
+- **Revisi yang diperlukan:**
+  1. **H4.1 harus diganti menjadi "halusinasi → benar"**, bukan "tidak benar → benar". Di Studi 3, saran (17/130) dan plasebo (15/130) sudah "memulihkan" 11–13% item tidak benar, hampir seluruhnya karena abstain → menjawab. Dengan definisi lama, H4.1 akan gagal walaupun *steering* bekerja.
+  2. **Ukuran sampel:** simulasi McNemar (*steer* vs saran 1,4%) memberi daya 0,78 pada 150 halusinasi jika efek 8,5%, dan 0,83 pada 300 halusinasi jika efek 6%. Efek *dev* terkena *winner's curse* (dipilih dari 16 konfigurasi), jadi rencanakan sekitar 300 halusinasi, atau ±1.700 item sampel. **Kumpulan uji 600 item tidak cukup**; perlu diperbesar sebelum dikunci.
+  3. Laporkan *net benefit* (benar − 2·halusinasi) sebagai uji utama alternatif, karena lebih stabil daripada proporsi pulih.

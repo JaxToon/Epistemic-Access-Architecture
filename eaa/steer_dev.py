@@ -51,7 +51,8 @@ def _base():
     items = {it["id"]: it for it in load_items(ITEMS)}
     s2pk = {(r["item_id"], r["level"], r["policy"]): r
             for r in map(json.loads, open(S2_DIR / "packets.jsonl", encoding="utf-8"))}
-    prim = sorted(i for i in items if question_class(items[i]) == "open" and s2pk[(i, "full", "length")]["answer_para_defined"])
+    prim = sorted(i for i in items if (i, "full", "length") in s2pk and question_class(items[i]) == "open"
+                  and s2pk[(i, "full", "length")]["answer_para_defined"])
     rng = np.random.default_rng(SEED)
     fold = {i: int(k) for i, k in zip(rng.permutation(prim), np.arange(len(prim)) % 2)}
     off = {(r["item_id"], r["level"], r["policy"]): r["output"]
@@ -130,8 +131,8 @@ def _generate(configs: list[tuple[str, int, float, dict]], tag_file: str):
                 try:
                     texts = {r: tok.apply_chat_template(_msgs(pk[r]), tokenize=False, add_generation_prompt=True) for r in rows}
                     rows.sort(key=lambda r: len(texts[r]))
-                    for b in tqdm(range(0, len(rows), 8), desc=f"{name} f{k}"):
-                        chunk = rows[b:b + 8]
+                    for b in tqdm(range(0, len(rows), 4), desc=f"{name} f{k}"):
+                        chunk = rows[b:b + 4]
                         enc = tok([texts[r] for r in chunk], return_tensors="pt", padding=True, add_special_tokens=False).to("cuda")
                         with torch.inference_mode():
                             g = model.generate(**enc, max_new_tokens=24, do_sample=False, temperature=None, top_p=None,

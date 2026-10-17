@@ -348,3 +348,21 @@ Temuan review dan perbaikannya:
 ### 2026-10-17 — Decoy ketat (rencana 18 §A) + sampel uji Studi 4
 - *Decoy* ketat: 1.913 judul unit paket (topikal, ada di *evidence*), tidak pernah dilatih. Pada 71 halusinasi, *probe* L27 menempatkan **emas di peringkat 1 di antara {emas, *greedy*, semua judul paket}: 46/71 = 65% [53%; 75%]**, sedangkan peluang acak 15,3%. Skor eksternal: 0/71. Judul paket terbaik mengalahkan *greedy* pada 35% (*probe*) vs 6% (eksternal). **Temuan "tahu tapi tidak mengungkap" bertahan terhadap pesaing yang masuk akal.**
 - Kumpulan uji Studi 4 diambil (belum dijalankan, belum dilihat): `01_data/hotpot_dev_study4_pool600_seed20261017.jsonl`, 600 item dari 6.505 item dev yang belum dipakai (pilot dan Studi 2 dikecualikan); urutan file = urutan sampel, sehingga N pertama dipakai sesuai pre-registrasi.
+
+### 2026-10-17 — Replikasi probe pada Qwen2.5-1.5B dan 7B (rencana 18 §B)
+- Prosedur identik, lapisan primer 21 dari 28; 186 kandidat ambigu baru dinilai *judge*. Hasil: `07_analysis/diagnosis_qwen2.5-{1.5b,7b}/probe_summary.md`.
+
+| Model | Uji 1: K_int − K_ext [95%] (n item) | Uji 2: emas > *greedy* salah | Eksternal | *Decoy* | Emas − *decoy* [95%] |
+| --- | --- | --- | --- | --- | --- |
+| 1.5B | +0,009 [−0,060; 0,082] (117) | 44/80 = 55% | 6% | 15% | +0,40 [0,29; 0,53] |
+| 3B | +0,244 [0,106; 0,389] (41) | 49/71 = 69% | 0% | 10% | +0,59 [0,47; 0,72] |
+| 7B (4-bit) | +0,275 [0,091; 0,455] (32) | 19/40 = 48% | 0% | 0% | +0,48 [0,33; 0,63] |
+
+- **Kesimpulan sesuai kriteria pra-tetap:** didukung pada 3B dan 7B. Pada 1.5B hanya sebagian: uji 2 dan kontrol *decoy* positif, tetapi uji 1 tidak, karena *probe* tidak mengurutkan kandidat benar/salah lebih baik daripada log-prob secara umum. Pola: "pengetahuan internal melebihi ekspresi" lebih jelas pada model yang lebih besar. Untuk 7B n kecil (40 halusinasi, 32 item uji 1).
+
+### 2026-10-17 — Pilot steering pada dev (rencana 18 §C)
+- *Grid* L ∈ {18, 21, 24, 27} × α ∈ {0,5; 1; 2; 4}, CAA selisih rata-rata (benar − halusinasi) di t₀, *cross-fit* 2 lipatan, 255 item utama, `full` + `drop_ans`. 29 kasus ambigu baru dinilai *judge*. Kode: `eaa/steer_dev.py`. Hasil: `07_analysis/steer_dev/`.
+- **Terpilih (kriteria pra-tetap): L24 α2** — pulih 10,8%, halusinasi → benar 8,5%, rusak 4,0%, Δbenar +3,5, Δhalusinasi@`drop_ans` +1,2. **Arah acak:** pulih 0%, rusak 8,8%. L27 α4 merusak berat (rusak 42%).
+- Pratinjau H4.4: pulih K1 12,2% (6/49) vs non-K1 0% (0/22).
+- Arah tidak stabil antar lipatan (kosinus −0,17 sampai 0,23).
+- Implikasi untuk draf Studi 4 (§9 dokumen 17): H4.1 diganti menjadi halusinasi → benar; ukuran sampel ±1.700 item (kumpulan 600 tidak cukup); pertimbangkan arah dari kontras di dalam item.
