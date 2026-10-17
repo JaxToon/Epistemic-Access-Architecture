@@ -294,3 +294,21 @@ Temuan review dan perbaikannya:
   - Tidak-benar → benar (termasuk abstain): saran 17/130 vs plasebo 15/130 (Qwen); Gemma 9/131 vs 3/131. Hampir semuanya abstain → menjawab, bukan koreksi jawaban salah.
 - Implikasi desain: "otoritas" versi sekarang hanya veto. RQ pemulihan butuh intervensi pada proses generasi (mis. steering yang dipicu σ). Klaim "tahu tapi tidak mengungkap" butuh bukti bahwa *jawaban* (bukan sekadar kecukupan) ter-decode dari hidden pada 71 kasus tsb. (probe jawaban / logit lens) sebelum steering.
 - Rencana lanjutan ditulis di `00_docs/11_rencana_lanjutan_pasca_masukan_dosen.md`: Fase 1 diagnosis "tahu tapi tidak mengungkap" → Fase 2 popularitas entitas → Fase 3 cek literatur steering (YOPO, SHIFT, Kawada & Kellis sudah dekat) → Fase 4 Studi 4 intervensi hidden state (tangga otoritas: saran, veto, intervensi) → Fase 5 multibahasa.
+
+### 2026-10-17 — Fase 1 (diagnosis) + Fase 3 (literatur), eksploratif
+- Rencana analisis ditulis sebelum menghitung apa pun: `00_docs/12_analysis_plan_diagnosis_popularity.md`. Kode: `eaa/diagnose.py` (score / pageviews / analyze). Output: `07_analysis/diagnosis/`.
+- **Hasil Fase 1** (Qwen 3B, `full`, populasi utama; benar 125, halusinasi 71, abstain 59):
+  - **Sumber pengetahuan hampir seluruhnya konteks.** *Closed-book* benar hanya 3% secara keseluruhan; dari 71 halusinasi, hanya 2 yang jawabannya diketahui dari memori.
+  - **Kriteria K1 primer cacat** (keluaran *greedy* ⇒ LP_own ≈ 0; K1 = 0/71 adalah tautologi). Dicatat sebagai deviasi; tidak dipakai untuk keputusan.
+  - K1 longgar (token pertama jawaban emas masuk 5 besar di t₀): **34/71 = 48%** [37%; 59%]. 19/71 ada di peringkat ≤ 2; 18/71 di atas peringkat 100. Pada jawaban benar, 88% peringkat ≤ 5.
+  - Konteks lengkap tetap menaikkan peluang jawaban emas pada kasus halusinasi: ΔLP_ctx median 3,96 nat/token (benar 5,19; p = 0,017). Informasinya masuk, tetapi kalah bersaing.
+  - Jenis kesalahan: **61% memilih entitas lain dari paragraf emas**, 11% berhenti di hop pertama, 13% menyalin dari pengecoh, 6% parsial, 10% lainnya.
+  - *Logit lens*: jawaban emas baru muncul di 3–4 lapisan terakhir pada semua kelompok. Tidak ada pola "muncul di lapisan tengah lalu ditekan" (catatan: *logit lens* lemah di lapisan tengah Qwen).
+  - σ tidak membedakan benar vs halusinasi (Mann–Whitney p = 0,73), konsisten dengan uji kalibrasi.
+  - Derau label: sebagian emas HotpotQA tidak berbentuk jawaban, dan beberapa "halusinasi" nyaris benar.
+- **Fase 3 (literatur)** → `00_docs/13_prior_art_steering_followup.md`:
+  - YOPO (2608.14465): *steering* terlatih + *gate* kecukupan pada Qwen2.5 1.5B/3B/7B, termasuk MuSiQue. Pembanding verbalnya berupa instruksi, bukan nilai sinyal yang sama dan tanpa plasebo; tidak menghitung *flip* salah → benar; tanpa HotpotQA, popularitas, atau multibahasa.
+  - Lu dkk. (2602.14529): dikotomi *knowledge existence* vs *behavior expression*; perilaku diinduksi DPO, parametrik, satu-hop, LLaMA-3.1-8B; *steering* memulihkan ±45% KI → KC, halusinasi ≈ 0.
+  - SHIFT (2606.27786) berganti judul menjadi SPARK di v2 (13 Okt 2026); entri prior art diberi catatan.
+- **Keputusan:** Studi 4 dibingkai sebagai perbandingan tiga bentuk otoritas (saran, veto, intervensi) dengan nilai sinyal identik dan plasebo, pada kegagalan alami multi-hop. Populasi target *steering*: kasus "nyaris" (R_final ≤ 5). Sebelum itu, jalankan Fase 1b: *probe* internal vs eksternal ala Gekhman dkk. untuk menguji "tahu tapi tidak mengungkap" secara benar.
+- Fase 2 (popularitas): *pageviews* masih diambil (REST API Wikimedia membatasi laju klien tanpa kontak; ±6–12 judul/menit, 795 judul). Analisis menyusul.
