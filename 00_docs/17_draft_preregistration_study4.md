@@ -71,3 +71,46 @@ Model kedua dari keluarga lain (Gemma via bobot HF, 4-bit). Efek *steering* berg
   1. **H4.1 harus diganti menjadi "halusinasi → benar"**, bukan "tidak benar → benar". Di Studi 3, saran (17/130) dan plasebo (15/130) sudah "memulihkan" 11–13% item tidak benar, hampir seluruhnya karena abstain → menjawab. Dengan definisi lama, H4.1 akan gagal walaupun *steering* bekerja.
   2. **Ukuran sampel:** simulasi McNemar (*steer* vs saran 1,4%) memberi daya 0,78 pada 150 halusinasi jika efek 8,5%, dan 0,83 pada 300 halusinasi jika efek 6%. Efek *dev* terkena *winner's curse* (dipilih dari 16 konfigurasi), jadi rencanakan sekitar 300 halusinasi, atau ±1.700 item sampel. **Kumpulan uji 600 item tidak cukup**; perlu diperbesar sebelum dikunci.
   3. Laporkan *net benefit* (benar − 2·halusinasi) sebagai uji utama alternatif, karena lebih stabil daripada proporsi pulih.
+
+## 10. Versi 0.2: teks yang diusulkan untuk dikunci (28 Okt 2026)
+
+Bagian ini **menggantikan** §2–§6 jika ada pertentangan. Yang masih kosong ditandai [ISI].
+
+### 10.1 Data
+- **Uji:** `01_data/hotpot_dev_study4_n1700_seed20261028.jsonl` (1.700 item; seed 20261028; pilot dan Studi 2/3 dikecualikan; kumpulan 600 sebelumnya digantikan dan tidak pernah dijalankan). Paket sudah dibangun: 1.692 item lolos, **1.125 item utama** (perkiraan ±315 halusinasi `off`@`full`). Paket dibangun dengan `plan_item` yang sama dengan Studi 2 (seed paket 20261028).
+- ***Dev*:** 255 item utama Studi 2/3. Semua pilihan (arah, lapisan, kekuatan, *probe* K1) dibuat hanya dari *dev*.
+
+### 10.2 Lengan (Qwen2.5-3B-Instruct, *greedy*, maksimum 24 token)
+- Dijalankan: `off`, `advice` (σ asli di *prompt*), `placebo` (σ diacak, seed 20261028), `steer` (intervensi di semua item), `steer_rand` (arah acak, norma sama, di semua item).
+- Diturunkan, tanpa generasi baru:
+  - `veto`: `off` jika σ ≥ 0,5, selain itu abstain;
+  - `steer_σ`: `steer` jika σ ≥ 0,5, selain itu `off`;
+  - `steer_rand_σ`: `steer_rand` dengan pemicu yang sama.
+- σ: tiga *head* `eag_lc1` fase 1 (beku), rata-rata sigmoid. τ = 0,5 (sama dengan Studi 1b/3).
+- **Intervensi:** [ISI dari dokumen 19: jenis arah (di dalam item / CAA), lapisan L, kekuatan]. Vektor dihitung dari **semua** 255 item *dev* dan disimpan di `08_architecture/study4_steer_<jenis>_L<L>.pt` sebelum uji.
+
+### 10.3 Hipotesis konfirmatori (populasi utama)
+- **H4.1:** di antara item halusinasi pada `off`@`full`, laju halusinasi → benar `steer_σ` > `advice`. Uji: McNemar *exact*.
+- **H4.2:** sama, `steer_σ` > `steer_rand_σ`. Uji: McNemar *exact*.
+- **H4.3:** U(λ = 2) = benar − 2·halusinasi, dirata-rata per item atas `full` dan `drop_ans`: `steer_σ` > `veto`. Uji: *bootstrap* item 2.000×, dua sisi.
+- **H4.4:** di antara item halusinasi, laju halusinasi → benar `steer_σ` lebih tinggi pada kasus K1 daripada non-K1. K1 = *probe* L27 yang dilatih pada **semua** kandidat *dev* (Fase 1b) mengurutkan emas di atas jawaban `off`. Uji: Fisher satu sisi.
+- Koreksi Holm atas H4.1–H4.4, α = 0,05.
+- **H4.5 (biaya, bukan bagian Holm):** rusak (benar → tidak benar @`full`) `steer_σ` ≤ 0,05, **dan** batas atas IK 90% Δhalusinasi@`drop_ans` (`steer_σ` − `off`) ≤ +0,02.
+
+### 10.4 Label dan audit
+Aturan + *judge* Qwen2.5-7B. Kasus ambigu yang ditolak *judge* diaudit seperti Studi 3, sebelum analisis. Analisis sensitivitas memakai label ketat.
+
+### 10.5 Kriteria kegagalan yang ditulis sekarang
+- Jika H4.1 gagal tetapi H4.2 lolos: intervensi bekerja (spesifik arah), tetapi tidak lebih baik dari saran. Klaim "tangga otoritas" tidak didukung.
+- Jika H4.2 gagal: efek *dev* tidak spesifik arah pada data baru. Klaim intervensi gugur.
+- Jika H4.5 melampaui batas: intervensi dilaporkan dengan biayanya, dan tidak direkomendasikan.
+
+### 10.6 Tidak termasuk
+Lengan multibahasa (studi tersendiri, lihat Fase 5a) dan replikasi lintas model (eksploratif, setelah uji utama).
+
+### 10.7 Cek mandiri sebelum dikunci (oleh Claude, 28 Okt; **bukan pengganti tinjauan manusia**)
+- **Kebocoran *dev*/uji:** tidak ada item yang tumpang-tindih (dikecualikan saat sampel). *Head* σ dilatih pada HotpotQA *train*; arah dan *probe* dari *dev*.
+- ***Winner's curse*:** konfigurasi dipilih dari 16 (+16) kandidat di *dev*. Sudah diantisipasi dengan ukuran sampel yang dihitung untuk efek 6%, bukan 8,5%.
+- **Multiplisitas arah:** hanya **satu** arah yang dibawa ke uji (dipilih di *dev*), sehingga tidak ada multiplisitas di uji.
+- **Pemicu yang adil:** `steer_σ` dan `steer_rand_σ` memakai pemicu yang sama. `advice` tidak dipicu; ini sesuai dengan definisi saran.
+- **Risiko yang tersisa:** label *judge* untuk keluaran baru hasil *steering* (gaya jawaban bisa bergeser), dan derau label HotpotQA. Mitigasi: audit ambigu, dan sensitivitas dengan label ketat.

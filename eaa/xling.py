@@ -38,6 +38,7 @@ NEW = "Give only the short answer (a few words) in English, no explanation."
 LATIN = {"en", "es", "fr", "de", "pt", "it", "nl", "pl", "sv", "tr", "vi", "id", "sw"}
 SEED = 20261017
 B = 2000
+XARM = "XL"          # second arm name; Phase 5b (eaa.idmono) rebinds it to "ID"
 
 
 def _norm(s) -> str:
@@ -176,48 +177,48 @@ def analyze():
 
     P_ = d[d.primary == 1]
     W = {(a, lv): P_[(P_.arm == a) & (P_.level == lv)].set_index("item_id").sort_index()
-         for a in ("EN", "XL") for lv in ("full", "drop_ans")}
-    ids = W[("EN", "full")].index.intersection(W[("XL", "full")].index) \
-        .intersection(W[("EN", "drop_ans")].index).intersection(W[("XL", "drop_ans")].index)
+         for a in ("EN", XARM) for lv in ("full", "drop_ans")}
+    ids = W[("EN", "full")].index.intersection(W[(XARM, "full")].index) \
+        .intersection(W[("EN", "drop_ans")].index).intersection(W[(XARM, "drop_ans")].index)
 
     def vec(a, lv, col):
         return W[(a, lv)].loc[ids, col].to_numpy().astype(float)
 
-    pair = {a: (vec(a, "full", "sigma") > vec(a, "drop_ans", "sigma")).astype(float) for a in ("EN", "XL")}
+    pair = {a: (vec(a, "full", "sigma") > vec(a, "drop_ans", "sigma")).astype(float) for a in ("EN", XARM)}
     rows = []
     for name, x, y in [
-        ("benar@full", vec("EN", "full", "correct"), vec("XL", "full", "correct")),
-        ("halusinasi@full", vec("EN", "full", "hallucination"), vec("XL", "full", "hallucination")),
-        ("abstain@full", vec("EN", "full", "abstain"), vec("XL", "full", "abstain")),
-        ("halusinasi@drop_ans", vec("EN", "drop_ans", "hallucination"), vec("XL", "drop_ans", "hallucination")),
-        ("akurasi berpasangan σ(full>drop_ans)", pair["EN"], pair["XL"]),
-        ("gate menolak@full (σ<0,5)", vec("EN", "full", "gate_refuse"), vec("XL", "full", "gate_refuse")),
-        ("σ@full (rata-rata)", vec("EN", "full", "sigma"), vec("XL", "full", "sigma")),
+        ("benar@full", vec("EN", "full", "correct"), vec(XARM, "full", "correct")),
+        ("halusinasi@full", vec("EN", "full", "hallucination"), vec(XARM, "full", "hallucination")),
+        ("abstain@full", vec("EN", "full", "abstain"), vec(XARM, "full", "abstain")),
+        ("halusinasi@drop_ans", vec("EN", "drop_ans", "hallucination"), vec(XARM, "drop_ans", "hallucination")),
+        ("akurasi berpasangan σ(full>drop_ans)", pair["EN"], pair[XARM]),
+        ("gate menolak@full (σ<0,5)", vec("EN", "full", "gate_refuse"), vec(XARM, "full", "gate_refuse")),
+        ("σ@full (rata-rata)", vec("EN", "full", "sigma"), vec(XARM, "full", "sigma")),
     ]:
         dif = y - x
         reps = [dif[rng.integers(0, len(dif), len(dif))].mean() for _ in range(B)]
         lo, hi = np.percentile(reps, [2.5, 97.5])
-        rows.append({"ukuran": name, "EN*": x.mean(), "XL": y.mean(), "XL−EN*": dif.mean(), "lo": lo, "hi": hi})
+        rows.append({"ukuran": name, "EN*": x.mean(), XARM: y.mean(), f"{XARM}−EN*": dif.mean(), "lo": lo, "hi": hi})
     con = pd.DataFrame(rows)
 
-    xf = W[("XL", "full")].loc[ids].copy()
+    xf = W[(XARM, "full")].loc[ids].copy()
     ef = W[("EN", "full")].loc[ids]
     xf["d_correct"] = xf.correct.to_numpy() - ef.correct.to_numpy()
     xf["script"] = xf.ans_lang.map(lambda l: "tidak terpetakan" if not isinstance(l, str) else
                                    ("en (kontrol)" if l == "en" else "Latin" if l in LATIN else "non-Latin"))
-    by_script = xf.groupby("script").agg(n=("correct", "size"), benar_XL=("correct", "mean"),
-                                         d_benar=("d_correct", "mean"), halu_XL=("hallucination", "mean"),
-                                         abstain_XL=("abstain", "mean"), sigma_XL=("sigma", "mean"))
-    by_lang = xf.groupby("ans_lang").agg(n=("correct", "size"), benar_XL=("correct", "mean"),
-                                         d_benar=("d_correct", "mean"), abstain_XL=("abstain", "mean"),
-                                         sigma_XL=("sigma", "mean")).sort_values("d_benar")
+    by_script = xf.groupby("script").agg(n=("correct", "size"), benar_X=("correct", "mean"),
+                                         d_benar=("d_correct", "mean"), halu_X=("hallucination", "mean"),
+                                         abstain_X=("abstain", "mean"), sigma_X=("sigma", "mean"))
+    by_lang = xf.groupby("ans_lang").agg(n=("correct", "size"), benar_X=("correct", "mean"),
+                                         d_benar=("d_correct", "mean"), abstain_X=("abstain", "mean"),
+                                         sigma_X=("sigma", "mean")).sort_values("d_benar")
     md = ["# Fase 5a — evidence lintas bahasa (pilot eksploratif)\n",
           "Rencana: `00_docs/16_analysis_plan_phase5a_crosslingual.md`. Qwen2.5-3B, pertanyaan bahasa Inggris, "
           "evidence diterjemahkan (XHotpotQA, GPT-4o mini); kedua lengan diminta menjawab dalam bahasa Inggris.\n",
           f"Populasi utama, item berpasangan: {len(ids)}; judge_missing: {int(d.judge_missing.sum())}; "
-          f"unit XL tak terpetakan (rata-rata per paket): {d[d.arm == 'XL'].n_unmapped.mean():.2f}\n",
-          f"Keluaran XL@full yang memuat aksara non-Latin: {xf.non_latin_out.mean():.3f}\n",
-          "## Kontras XL − EN* (bootstrap item, IK 95%)\n```\n" + con.round(3).to_string(index=False) + "\n```\n",
+          f"unit {XARM} tak terpetakan (rata-rata per paket): {d[d.arm == XARM].n_unmapped.mean():.2f}\n",
+          f"Keluaran {XARM}@full yang memuat aksara non-Latin: {xf.non_latin_out.mean():.3f}\n",
+          f"## Kontras {XARM} − EN* (bootstrap item, IK 95%)\n```\n" + con.round(3).to_string(index=False) + "\n```\n",
           "## Per aksara paragraf jawaban (deskriptif)\n```\n" + by_script.round(3).to_string() + "\n```\n",
           "## Per bahasa paragraf jawaban (deskriptif, n kecil; bukan untuk klaim per bahasa)\n```\n" +
           by_lang.round(3).to_string() + "\n```\n"]

@@ -1,0 +1,1 @@
+rule verdicts over substantive outputs: {'correct': 2874, 'wrong': 3494, 'ambiguous': 1780}; new ambiguous to judge: 0

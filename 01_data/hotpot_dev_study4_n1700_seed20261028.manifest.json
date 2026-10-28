@@ -1,0 +1,14 @@
+{
+  "source": "01_data\\raw\\hotpot_qa_distractor_validation.parquet",
+  "source_sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "n": 1700,
+  "seed": 20261028,
+  "excludes": [
+    "01_data\\hotpot_dev_n500_seed20261005.jsonl",
+    "01_data\\hotpot_dev_study2_n400_seed20261006.jsonl"
+  ],
+  "eligible": 6505,
+  "sampling": "sorted by id, exclusions removed, random.Random(seed).sample; file order = sampled order",
+  "purpose": "Study 4 TEST items. Supersedes hotpot_dev_study4_pool600_seed20261017 (never run).",
+  "sample_sha256": "242c067f36cfea25ac1ad9c637f906882f6286d15529f66731604faaa1c6e3c4"
+}

@@ -9,5 +9,6 @@
   ],
   "sampling": "sorted by id, exclusions removed, random.Random(seed).sample; file order = sampled order (use the first N)",
   "purpose": "Study 4 TEST pool (draft prereg 00_docs/17). Do not run or inspect outputs before the prereg is locked.",
-  "sample_sha256": "fe1a515c2c75afa15f6afd7aa2fe8a2524ea3ba5237a6d52925d30d69ae0dabb"
+  "sample_sha256": "fe1a515c2c75afa15f6afd7aa2fe8a2524ea3ba5237a6d52925d30d69ae0dabb",
+  "status": "SUPERSEDED 2026-10-28 by hotpot_dev_study4_n1700_seed20261028 (power analysis, doc 17 \u00a79). Never run."
 }

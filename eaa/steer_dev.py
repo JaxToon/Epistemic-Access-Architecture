@@ -31,6 +31,7 @@ OUT = Path("05_outputs/steer_dev_qwen2.5-3b")
 REP = Path("07_analysis/steer_dev")
 LAYERS = [18, 21, 24, 27]
 ALPHAS = [0.5, 1.0, 2.0, 4.0]
+REL = [0.025, 0.05, 0.1, 0.2]          # plan 19: ‖α·v‖ / mean ‖h_L‖
 CONDS = [("full", "length"), ("drop_ans", "entity_poor")]
 SEED = 20261017
 MAX_DROP_HALLUC = 0.02
@@ -71,22 +72,22 @@ def _load():
     return tok, model
 
 
-def hidden():
+def hidden(level: str = "full", policy: str = "length", fname: str = "t0_hidden.pt"):
     import torch
     from tqdm import tqdm
 
     items, prim, fold, off, lab, pk = _base()
     tok, model = _load()
     H = {}
-    for i in tqdm(prim, desc="t0 hidden"):
-        text = tok.apply_chat_template(_msgs(pk[(i, "full", "length")]), tokenize=False, add_generation_prompt=True)
+    for i in tqdm(prim, desc=f"t0 hidden {level}"):
+        text = tok.apply_chat_template(_msgs(pk[(i, level, policy)]), tokenize=False, add_generation_prompt=True)
         ids = tok(text, return_tensors="pt", add_special_tokens=False).to("cuda")
         with torch.inference_mode():
             hs = model.model(**ids, output_hidden_states=True).hidden_states
         H[i] = torch.stack([hs[l][0, -1] for l in LAYERS]).float().cpu()
     OUT.mkdir(parents=True, exist_ok=True)
-    torch.save({"H": H, "layers": LAYERS}, OUT / "t0_hidden.pt")
-    print(f"saved {len(H)} -> {OUT / 't0_hidden.pt'}")
+    torch.save({"H": H, "layers": LAYERS}, OUT / fname)
+    print(f"saved {len(H)} -> {OUT / fname}")
 
 
 def _directions():
@@ -103,6 +104,47 @@ def _directions():
         for li, L in enumerate(LAYERS):
             V[(L, k)] = diff[li]
     return V
+
+
+def _within():
+    """Plan 19: mean over OTHER-fold items of h(full) − h(drop_ans) for the same item; plus mean ‖h‖."""
+    import torch
+
+    items, prim, fold, off, lab, pk = _base()
+    Hf = torch.load(OUT / "t0_hidden.pt", weights_only=False)["H"]
+    Hd = torch.load(OUT / "t0_hidden_dropans.pt", weights_only=False)["H"]
+    hn = torch.stack([Hf[i] for i in prim]).norm(dim=-1).mean(0)
+    V = {}
+    for k in (0, 1):
+        other = [i for i in prim if fold[i] != k]
+        diff = torch.stack([Hf[i] - Hd[i] for i in other]).mean(0)
+        for li, L in enumerate(LAYERS):
+            V[(L, k)] = diff[li]
+    return V, {L: float(hn[li]) for li, L in enumerate(LAYERS)}
+
+
+def grid_within():
+    import torch
+
+    V, hn = _within()
+    for L in LAYERS:
+        c = float(torch.nn.functional.cosine_similarity(V[(L, 0)], V[(L, 1)], dim=0))
+        print(f"L{L}: |v|/|h| = {float(V[(L, 0)].norm()) / hn[L]:.3f}, kosinus antar lipatan = {c:.3f}")
+    cfgs = [(f"W_L{L}_r{r:g}", L, 1.0, {k: V[(L, k)] / V[(L, k)].norm() * r * hn[L] for k in (0, 1)})
+            for L in LAYERS for r in REL]
+    _generate(cfgs, "generations.jsonl")
+
+
+def random_within(layer: int, rel: float):
+    import torch
+
+    V, hn = _within()
+    g = torch.Generator().manual_seed(SEED)
+    vecs = {}
+    for k in (0, 1):
+        r = torch.randn(V[(layer, k)].shape, generator=g)
+        vecs[k] = r / r.norm() * rel * hn[layer]
+    _generate([(f"RAND_W_L{layer}_r{rel:g}", layer, 1.0, vecs)], "generations.jsonl")
 
 
 def _generate(configs: list[tuple[str, int, float, dict]], tag_file: str):
@@ -233,32 +275,42 @@ def analyze():
                          "n_K1": len(hk1), "n_nonK1": len(hk2),
                          "judge_missing": int(g.judge_missing.sum())})
     T = pd.DataFrame(rows).sort_values(["trigger", "config"])
-    ok = T[(T.d_halu_drop <= MAX_DROP_HALLUC) & ~T.config.str.startswith("RAND")]
-    best = ok.loc[(ok.pulih - ok.rusak).idxmax()] if len(ok) else None
+    T["family"] = np.where(T.config.str.startswith("RAND"), "acak",
+                           np.where(T.config.str.startswith("W_"), "di dalam item", "CAA lintas item"))
     REP.mkdir(parents=True, exist_ok=True)
     T.to_csv(REP / "grid.csv", index=False)
     md = ["# Pilot steering pada dev (eksploratif)\n",
-          "Rencana: `00_docs/18_analysis_plan_hard_decoy_replication_steer_dev.md` §C. Qwen2.5-3B, 255 item utama; "
+          "Rencana: dokumen 18 §C (CAA lintas item) dan 19 (arah di dalam item). Qwen2.5-3B, 255 item utama; "
           "arah cross-fit 2 lipatan. Dibandingkan dengan `off`.\n",
-          "```\n" + T.round(3).to_string(index=False) + "\n```\n"]
-    if best is not None:
-        md.append(f"\nKonfigurasi terpilih (maks pulih − rusak, Δhalu@drop_ans ≤ {MAX_DROP_HALLUC}): "
-                  f"**{best.config} (pemicu {best.trigger})**: pulih {best.pulih:.3f}, rusak {best.rusak:.3f}, "
-                  f"Δbenar {best.net_benar:+.3f}, Δhalu@drop_ans {best.d_halu_drop:+.3f}\n")
+          "```\n" + T.drop(columns=["family"]).round(3).to_string(index=False) + "\n```\n"]
+    for fam in ("CAA lintas item", "di dalam item"):
+        ok = T[(T.d_halu_drop <= MAX_DROP_HALLUC) & (T.family == fam)]
+        if not len(ok):
+            continue
+        best = ok.loc[(ok.pulih - ok.rusak).idxmax()]
+        md.append(f"\nTerpilih [{fam}] (maks pulih − rusak, Δhalu@drop_ans ≤ {MAX_DROP_HALLUC}): "
+                  f"**{best.config} (pemicu {best.trigger})**: pulih {best.pulih:.3f}, halu→benar {best.pulih_halu:.3f}, "
+                  f"rusak {best.rusak:.3f}, Δbenar {best.net_benar:+.3f}, Δhalu@drop_ans {best.d_halu_drop:+.3f}\n")
     (REP / "summary.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md))
 
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")   # Windows console (cp1252) cannot print ‖, σ, →
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["hidden", "grid", "random", "analyze"])
+    ap.add_argument("mode", choices=["hidden", "hidden_drop", "grid", "grid_within", "random", "random_within", "analyze"])
     ap.add_argument("--layer", type=int)
     ap.add_argument("--alpha", type=float)
+    ap.add_argument("--rel", type=float)
     a = ap.parse_args()
     if a.mode == "random":
         random_ctrl(a.layer, a.alpha)
+    elif a.mode == "random_within":
+        random_within(a.layer, a.rel)
+    elif a.mode == "hidden_drop":
+        hidden("drop_ans", "entity_poor", "t0_hidden_dropans.pt")
     else:
-        {"hidden": hidden, "grid": grid, "analyze": analyze}[a.mode]()
+        {"hidden": hidden, "grid": grid, "grid_within": grid_within, "analyze": analyze}[a.mode]()
 
 
 if __name__ == "__main__":
